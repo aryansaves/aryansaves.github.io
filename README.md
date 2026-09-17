@@ -2,9 +2,7 @@
 
 A Next.js, React, TypeScript, and CSS Modules portfolio exported statically for GitHub Pages.
 
-**Design direction saved; redesign pending:** one centered, compact pastel scrapbook résumé with supplied paper texture, stickers, and expressive type. All portfolio content will live on one sheet, with no Work/About/Resume navigation. `/resume.pdf` remains directly accessible.
-
-The current application still renders the earlier monochrome Home, Work, and About pages. This documentation update does not change the running site. Read the updated design and implementation documents before continuing development.
+The site is one centered, compact pastel scrapbook résumé. Projects, education, practical details, contact, and the PDF link live on the same sheet. The page uses the supplied paper and sticker artwork, with no Work/About/Resume navigation. `/resume.pdf` remains directly accessible.
 
 ## Local development
 
@@ -15,7 +13,7 @@ npm ci
 npm run dev
 ```
 
-Open http://localhost:3000. Manrope is self-hosted from the Fontsource package; its OFL license is included in `public/licenses/manrope.txt`. Metadata uses `SITE_URL` when set; no production domain is invented for local builds.
+Open http://localhost:3000. Manrope is self-hosted from the Fontsource package and Fraunces is a local OFL display font; their licenses are in `public/licenses/manrope.txt` and `public/type/OFL.txt`. Metadata uses `SITE_URL` when set; no production domain is invented for local builds.
 
 ## Verify the static site
 
@@ -27,7 +25,7 @@ npm run verify
 npm run preview
 ```
 
-The current export verifier expects the old multipage routes; it must be updated with the one-page redesign.
+The export verifier checks the one-page route, custom 404, local links, artwork, unchanged identity image, and canonical PDF.
 
 `preview` serves `out/` at port 3000 with real 404 responses and no SPA fallback. It is a local verification utility, not a production server. Set `PORT` to change its port.
 
@@ -41,7 +39,7 @@ To test project-site deployment, build, verify, and preview with the same `NEXT_
 - **Project site:** a repository named `portfolio` publishes the PDF at `https://aryansaves.github.io/portfolio/resume.pdf`. This repository cannot publish outside its own path.
 - **Custom domain:** a root domain configured for this site exposes `https://your-domain/resume.pdf`.
 
-These are deployment examples using the supplied GitHub handle, not claims that a repository or deployment already exists. This workspace had no usable Git metadata or remote at implementation time.
+These are deployment examples using the supplied GitHub handle, not claims that a remote repository or deployment already exists. This workspace has local Git history but no connected remote.
 
 ## GitHub Pages setup
 
@@ -58,7 +56,7 @@ For a custom domain, configure it and its DNS in GitHub Pages, then set reposito
 - [Factual content and editorial TODOs](docs/CONTENT.md)
 - [Implementation decisions](docs/IMPLEMENTATION.md)
 
-Current application content is maintained in `src/lib/content.ts` and the About page from confirmed facts; consolidate it during the one-page redesign. Project descriptions, Kiroku, employment, and unverified contribution claims are omitted. The existing version shows three homepage projects and Eiga on Work. The redesign will consolidate all four entries on the single sheet.
+Application facts are maintained in `src/lib/content.ts` and rendered by `src/components/ResumeSections.tsx`. Project descriptions, Kiroku, employment, and unverified contribution claims are omitted until confirmed. See [asset provenance](docs/ASSETS.md) and [font decisions](docs/TYPOGRAPHY.md) before public publication.
 
 ## Tooling compatibility
 

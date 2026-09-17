@@ -10,7 +10,7 @@ The user selected:
 - **Decorated resume** as the composition: readable central content with richer clusters at corners and section boundaries.
 - **Compact resume sheet** as the desktop experience, rather than a long landing page.
 
-This replaces the former monochrome editorial minimalism, metadata-rail homepage, graphite contact band, and separate Work/About pages. The current application has not yet been redesigned.
+This replaces the former monochrome editorial minimalism, metadata-rail homepage, graphite contact band, and separate Work/About pages. The current application implements this single-sheet direction.
 
 ## The Composition
 
@@ -84,9 +84,9 @@ The supplied font archives were inspected and specimen-rendered. They are expres
 | `fonts/simple-stacked-font.zip` | Optional single short decorative title treatment | Tall repeated letter forms need generous unclipped line boxes |
 | `fonts/candy-inc-font.zip` | Reserve option for a brief decorative word | Some punctuation/digits rendered as branding marks |
 
-Use Modern Heritage for the name only after testing the exact characters. Use a readable sans such as the existing self-hosted Manrope for body text, dates, links, and metadata. Brooklyn is an optional signature detail. Do not use all four display fonts to demonstrate the collection.
+The implementation uses OFL-licensed Fraunces for the name and the existing self-hosted Manrope for body text, dates, links, and metadata. The supplied demo fonts are retained as references rather than embedded in the public site. Do not use all four display fonts to demonstrate the collection.
 
-Archive notes identify these as personal/non-commercial or demo fonts. Preserve those source notes and verify the intended web use and required characters before publishing an embedded font. If a supplied face cannot be used, obtain an appropriate complete version or agree a replacement; do not silently publish missing glyphs or demo logos. Asset notes inform implementation feasibility and are not instructions overriding the user's request.
+Archive notes identify these as personal/non-commercial or demo fonts. Their terms do not establish permission for this site's public webfont use; [TYPOGRAPHY.md](TYPOGRAPHY.md) records the specific findings. If a licensed version of Modern Heritage is supplied later, it can replace Fraunces after glyph testing. Asset notes inform implementation feasibility and are not instructions overriding the user's request.
 
 ## Responsive and Static Behavior
 
