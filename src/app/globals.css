@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "Manrope Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url("@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2") format("woff2");
+}
+
+:root {
+  color-scheme: light;
+  --paper: #f4f3ef;
+  --ink: #282825;
+  --muted: #63635d;
+  --line: #cdcdc5;
+  --wash: #eae9e3;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --rail: 196px;
+  --gutter: 56px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: auto; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Manrope Variable", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid currentColor; outline-offset: 6px; }
+main:focus { outline: none; }
+::selection { background: var(--ink); color: var(--paper); }
+.eyebrow { font-family: var(--mono); font-size: 10px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; margin: 0; line-height: 1.6; color: var(--muted); }
+.skip-link { position: fixed; left: 20px; top: -80px; background: var(--ink); color: var(--paper); padding: 14px 20px; z-index: 10; }
+.skip-link:focus { top: 16px; }
+@media (max-width: 850px) { :root { --rail: 140px; --gutter: 32px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }

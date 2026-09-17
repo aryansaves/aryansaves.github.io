@@ -1,0 +1,62 @@
+.shell { width: min(1120px, calc(100% - 112px)); margin-inline: auto; }
+.header { min-height: 112px; display: flex; align-items: center; justify-content: space-between; gap: 28px; border-bottom: 1px solid var(--line); }
+.wordmark { font-size: 27px; font-weight: 650; letter-spacing: -1.4px; text-decoration: none; }
+.wordmark span { color: var(--muted); }
+.nav { display: flex; gap: 30px; flex-wrap: wrap; }
+.nav a { padding-block: 12px; font-size: 13px; color: var(--muted); text-decoration: none; }
+.nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 1px; }
+.nav a:hover { color: var(--ink); }
+.identityImage { display: block; width: 148px; height: auto; border: 1px solid var(--line); }
+.smallImage { display: block; width: 112px; height: auto; border: 1px solid var(--line); }
+.projects { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--ink); }
+.projects li { border-bottom: 1px solid var(--line); }
+.projectLink { display: grid; grid-template-columns: 44px 1fr auto; align-items: center; min-height: 96px; gap: 14px; text-decoration: none; }
+.projectNumber { font-family: var(--mono); font-size: 11px; color: var(--muted); align-self: center; }
+.projectName { font-size: clamp(25px, 3vw, 34px); letter-spacing: -1.2px; font-weight: 450; }
+.projectDestination { display: flex; align-items: center; gap: 28px; font-size: 12px; color: var(--muted); }
+.projectDestination span { font-size: 22px; color: var(--ink); }
+.projectLink:hover .projectName { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+.projectLink:hover { background: var(--wash); }
+.contact { display: grid; grid-template-columns: var(--rail) minmax(0, 1fr); gap: var(--gutter); background: var(--ink); color: var(--paper); padding: 40px; margin-top: 68px; scroll-margin-top: 24px; }
+.contactRail { display: flex; flex-direction: column; justify-content: space-between; }
+.contactRail h2 { color: #bcbcb6; }
+.contactLocation { font-family: var(--mono); color: #bcbcb6; font-size: 11px; line-height: 1.8; margin-bottom: 0; }
+.contactTitle { font-size: 35px; line-height: 1.2; letter-spacing: -1.2px; margin: -6px 0 22px; }
+.email { display: inline-flex; align-items: center; gap: 20px; font-size: clamp(14px, 1.8vw, 20px); text-decoration-thickness: 1px; text-underline-offset: 5px; overflow-wrap: anywhere; }
+.contactBottom { border-top: 1px solid #50504d; padding-top: 22px; margin-top: 36px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: #c4c4be; font-size: 11px; }
+.contactBottom p { margin: 0; }
+.socials { display: flex; flex-wrap: wrap; gap: 22px; padding: 0; margin: 0; list-style: none; }
+.socials a { text-decoration: none; }
+.socials a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.footer { display: flex; justify-content: space-between; gap: 20px; padding-block: 26px 32px; font-size: 10px; color: var(--muted); }
+.footer a { text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+@media (max-width: 850px) {
+  .shell { width: calc(100% - 64px); }
+  .contact { padding: 30px; grid-template-columns: 120px minmax(0, 1fr); }
+  .contactBottom { flex-direction: column; }
+}
+@media (max-width: 600px) {
+  .shell { width: calc(100% - 40px); }
+  .header { min-height: 88px; gap: 16px; }
+  .wordmark { font-size: 24px; }
+  .nav { gap: 16px; }
+  .nav a { font-size: 11px; }
+  .identityImage { width: 100px; }
+  .smallImage { width: 80px; }
+  .projectLink { grid-template-columns: 25px 1fr auto; gap: 8px; min-height: 88px; }
+  .projectName { font-size: 27px; }
+  .projectDestination { gap: 12px; font-size: 10px; }
+  .contact { grid-template-columns: 1fr; padding: 28px 22px; gap: 24px; margin-top: 48px; }
+  .contactRail { flex-direction: row; align-items: baseline; }
+  .contactLocation { margin: 0; text-align: right; }
+  .contactTitle { font-size: 32px; }
+  .email { font-size: 14px; gap: 12px; }
+  .contactBottom { margin-top: 28px; gap: 20px; }
+  .footer { font-size: 9px; }
+}
+@media (max-width: 360px) {
+  .header { align-items: flex-start; flex-direction: column; padding-block: 20px 12px; gap: 4px; }
+  .nav { justify-content: space-between; width: 100%; }
+  .email { font-size: 12px; }
+}
