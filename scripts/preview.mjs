@@ -5,7 +5,7 @@ import { resolve, extname, sep } from "node:path";
 const root = resolve("out");
 const base = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, "");
 const port = Number(process.env.PORT ?? 3000);
-const types = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".txt": "text/plain", ".jpg": "image/jpeg", ".png": "image/png", ".svg": "image/svg+xml", ".woff2": "font/woff2", ".pdf": "application/pdf", ".ico": "image/x-icon" };
+const types = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".txt": "text/plain", ".jpg": "image/jpeg", ".png": "image/png", ".webp": "image/webp", ".svg": "image/svg+xml", ".woff2": "font/woff2", ".ttf": "font/ttf", ".pdf": "application/pdf", ".ico": "image/x-icon" };
 
 await stat(root);
 createServer(async (request, response) => {

@@ -224,4 +224,20 @@
   .contactLinks ul {
     justify-content: flex-start;
   }
+
+  .email,
+  .contactLinks a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .contactLinks {
+    gap: 2px;
+    font-size: 12px;
+  }
+
+  .contactLinks ul {
+    gap: 0 14px;
+  }
 }
