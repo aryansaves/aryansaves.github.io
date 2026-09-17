@@ -6,8 +6,17 @@ export const identity = {
   location: "Delhi",
   timezone: "IST",
   email: "aryansrivastava354@gmail.com",
-  availability: "After 5pm & on weekends",
+  availability: "After 5 pm and on weekends",
   imageAlt: "Aryan’s monochrome illustrated profile image",
+} as const;
+
+export const education = {
+  institution: "KIET Deemed to be University",
+  degree: "B.Tech",
+  specialization: "CSE with specialization in AI",
+  startYear: 2024,
+  expectedGraduationYear: 2028,
+  location: "Ghaziabad",
 } as const;
 
 export const profiles = [
