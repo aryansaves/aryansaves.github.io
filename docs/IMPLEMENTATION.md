@@ -34,7 +34,7 @@ Three agents worked in disjoint files while the coordinator owned the shared pag
 | `2e24e4c` / baseline | Capture the original application and approved redesign brief | Stable starting point |
 | `2ec0826` / content | Consolidate confirmed facts and build semantic résumé sections | `src/lib/content.ts`, `ResumeSections` |
 | `49249cc` / artwork | Prepare supplied paper and individual sticker assets | `public/art/`, [ASSETS.md](ASSETS.md) |
-| `8a4899b` / typography | Review supplied ZIPs and add licensed display font | `public/type/`, [TYPOGRAPHY.md](TYPOGRAPHY.md) |
+| `8a4899b` / typography | Review the initial supplied ZIPs and add an OFL fallback | `public/type/`, [TYPOGRAPHY.md](TYPOGRAPHY.md) |
 | `45489c4` / integration | Compose the centered sheet, remove old routes, update export checks, inspect responsive output | App shell, CSS, 404, verifier |
 
 The integration remains a separate commit after the independent content and asset commits.
@@ -55,7 +55,7 @@ Keep the sheet compact through concise copy and composition, not fixed-height cl
 - Consolidate the four already-listed public project entries in supplied order: servee, clockwork, Feedback, Eiga. Names and destination links suffice until descriptions are verified.
 - Use confirmed education and practical details; no blank employment or skills sections.
 - Use the first palette as the foundation. The second palette supplies optional tiny warm accents only.
-- Use OFL-licensed Fraunces for the name and Manrope for readable details. Supplied demo fonts are not embedded because their included licenses do not permit the intended web use; see [TYPOGRAPHY.md](TYPOGRAPHY.md).
+- The local prototype now uses the later supplied Awesome and Priestacy fonts for the name and role, with Manrope for readable details. Their bundled terms require resolution before public professional-portfolio use; see [TYPOGRAPHY.md](TYPOGRAPHY.md).
 - Start with the supplied planet, flower, and checkerboard motifs. Exclude the date-bearing 2023 sticker.
 - No additional resource pack is necessary at the outset. Ask for genuinely personal motifs only if needed; do not invent interests.
 
@@ -79,8 +79,8 @@ This workspace now has a local Git history but no connected remote. Do not claim
 ## Verification Record — 2026-09-17
 
 - Passed ESLint, strict TypeScript checking, and Next.js production builds of the redesigned site.
-- Passed export verification at the root and `/portfolio` base paths: one content page, custom 404, 33 internal URLs, artwork, unchanged identity image, and canonical resume PDF.
+- Passed export verification at the root and `/portfolio` base paths: one content page, custom 404, 34 internal URLs, artwork, unchanged identity image, and canonical resume PDF.
 - Confirmed HTTP 200 and `application/pdf` for the PDF, HTTP 200 and `image/webp` for the prefixed paper asset, and a real HTTP 404 under both preview paths. Export verification compares the PDF and identity image to their original bytes.
-- Inspected desktop, 390px, and 320px layouts in the browser. There is no horizontal overflow; decorative images load; the Fraunces nameplate renders; the skip link focuses the résumé content; the browser console is clear.
+- Inspected desktop, 390px, and 320px layouts in the browser. There is no horizontal overflow; decorative images load; the revised Awesome/Priestacy nameplate renders; the skip link focuses the résumé content; the browser console is clear.
 - Exact 200% browser zoom remains a manual visual check before publication. Sticker and paper source rights also need confirmation before public deployment; see [ASSETS.md](ASSETS.md).
 - GitHub deployment has not run because no remote is connected. Local runtime is Node.js 26.8.1; workflow runtime is Node.js 24 LTS.

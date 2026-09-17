@@ -25,13 +25,8 @@ export default function Home() {
         <Image className={`${styles.sticker} ${styles.checker}`} src={publicUrl("/art/checker.png")} alt="" width={266} height={261} aria-hidden="true" />
 
         <div className={styles.sheetContent}>
-          <div className={styles.folio} aria-hidden="true">
-            <span>ARYAN / PROFILE</span><span>DELHI · IST</span>
-          </div>
-
           <header className={styles.nameplate}>
             <div className={styles.nameBlock}>
-              <p className={styles.kicker}>A personal résumé</p>
               <h1 id="page-title" className={styles.name}>
                 <span>Aryan Kumar</span>
                 <span>Srivastava</span>

@@ -13,7 +13,7 @@ npm ci
 npm run dev
 ```
 
-Open http://localhost:3000. Manrope is self-hosted from the Fontsource package and Fraunces is a local OFL display font; their licenses are in `public/licenses/manrope.txt` and `public/type/OFL.txt`. Metadata uses `SITE_URL` when set; no production domain is invented for local builds.
+Open http://localhost:3000. Manrope is self-hosted from the Fontsource package; the local design uses the supplied Awesome and Priestacy fonts for the nameplate. Their bundled terms are personal-use only, so review [the font notes](docs/TYPOGRAPHY.md) before publishing or pushing font files to a public repository. Metadata uses `SITE_URL` when set; no production domain is invented for local builds.
 
 ## Verify the static site
 

@@ -75,18 +75,16 @@ Decorative elements should have empty alternative text or be hidden from assisti
 
 ## Typography
 
-The supplied font archives were inspected and specimen-rendered. They are expressive display assets, not interchangeable body fonts.
+The user replaced the initial demo archives with Awesome and Priestacy. Both were inspected and specimen-rendered. They are expressive display assets, not interchangeable body fonts.
 
-| Archive | Initial role | Observed constraint |
+| Archive | Current role | Observed constraint |
 | --- | --- | --- |
-| `fonts/modern-heritage-display-font.zip` | Preferred full-name display face | Some punctuation and digits rendered as missing glyphs |
-| `fonts/brooklyn-font.zip` | Optional small handwritten signature | Some digits rendered as demo markings |
-| `fonts/simple-stacked-font.zip` | Optional single short decorative title treatment | Tall repeated letter forms need generous unclipped line boxes |
-| `fonts/candy-inc-font.zip` | Reserve option for a brief decorative word | Some punctuation/digits rendered as branding marks |
+| `fonts/awesome.zip` | Full-name brush lettering | Personal-use website embedding only under the included EULA |
+| `fonts/priestacy.zip` | Handwritten role lettering | Included PDF limits use to personal, non-promotional purposes |
 
-The implementation uses OFL-licensed Fraunces for the name and the existing self-hosted Manrope for body text, dates, links, and metadata. The supplied demo fonts are retained as references rather than embedded in the public site. Do not use all four display fonts to demonstrate the collection.
+The local implementation uses Awesome for the name, Priestacy for the role strip, and self-hosted Manrope for body text, dates, links, and metadata. The top folio labels, their rule, the decorative top tape, and the “A personal résumé” kicker were removed at the user's request.
 
-Archive notes identify these as personal/non-commercial or demo fonts. Their terms do not establish permission for this site's public webfont use; [TYPOGRAPHY.md](TYPOGRAPHY.md) records the specific findings. If a licensed version of Modern Heritage is supplied later, it can replace Fraunces after glyph testing. Asset notes inform implementation feasibility and are not instructions overriding the user's request.
+The included font terms do not establish permission for a promotional professional portfolio. [TYPOGRAPHY.md](TYPOGRAPHY.md) records the license findings and publication condition. The prior Fraunces asset remains available as an OFL fallback; the currently selected fonts are for local review until the intended public use is licensed.
 
 ## Responsive and Static Behavior
 
