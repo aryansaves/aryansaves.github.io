@@ -1,102 +1,32 @@
-# Design Direction — Pastel Scrapbook Résumé
+# Design Direction — Notebook Scrapbook Résumé
 
-## Selected Direction
+## Selected composition
 
-One centered, compact, static resume-like web page with a beautiful maximalist paper-and-sticker treatment. The sheet should feel personal, tactile, warm, and art-directed, with all essential content readable in one composition.
+One centered, compact résumé sheet on a charcoal desk. It is a static-exported web page, not an embedded PDF or a multipage portfolio. The name, role, supplied square identity image, factual introduction, projects, education, practical details, contact, and PDF link stay in one readable sequence. The sheet is 760px wide at most; smaller screens use a single reading column and natural vertical scrolling.
 
-The user selected:
+The latest art direction replaces the earlier pink/green pastel palette. Maximalism comes from layers of real paper, notebook rules, torn edges, tape, a few patterned cutouts, and playful type. The content stays upright and selectable. There is no Home/Work/About/Resume bar.
 
-- **Pastel scrapbook** as the color direction.
-- **Decorated resume** as the composition: readable central content with richer clusters at corners and section boundaries.
-- **Compact resume sheet** as the desktop experience, rather than a long landing page.
-
-This replaces the former monochrome editorial minimalism, metadata-rail homepage, graphite contact band, and separate Work/About pages. The current application implements this single-sheet direction.
-
-## The Composition
-
-Imagine a pale pink background with a softly green paper sheet centered on it. The supplied paper photograph brings creases and fibers into the surface. Pink scraps, checkerboard details, and illustrated stickers overlap selected edges and section breaks.
-
-The sheet is approximately 740px wide on desktop, with a portrait, resume-like proportion and natural height. Aim for a compact composition around one desktop screen, but do not clip content, force an exact A4 ratio, or shrink body copy to make it fit. Small screens may scroll.
-
-- **Nameplate:** full name in expressive display lettering, “Backend Engineer” on a pink strip, and the supplied square identity image as a small pasted element beside it.
-- **Introduction:** one brief factual sentence from confirmed identity and education, without inventing interests or expertise.
-- **Main body:** a wider project column beside a narrower education/location/availability column. Keep factual text aligned and upright.
-- **Closing:** email, social links, and a discreet PDF link on the same sheet. No navigation bar or oversized standalone contact section.
-- **Reading order:** name and role, introduction, projects, education and practical details, contact.
-
-The sheet is centered; the resume text inside it is principally left-aligned. Maximalism comes from varied material, type, and decorative clusters rather than a large quantity of content or repeated cards.
-
-## Palette
-
-Both supplied Color Hunt images remain references, but the first palette leads. The second is a source for tiny warm accents, not an equal competing theme.
+## Color and material
 
 | Role | Color | Use |
 | --- | --- | --- |
-| Outer background | `#FFD8DF` | Soft pink surrounding the sheet |
-| Main paper | `#F0FFDF` | Pale green reading surface, warmed by paper texture |
-| Green accent | `#A8DF8E` | Sticker details, tabs, and small printed areas |
-| Pink accent | `#FFAAB8` | Nameplate backing, pasted strips, and notes |
-| Text ink | `#26392D` | Proposed dark green for readable headings and copy |
-| Optional warm accent | `#DF301C` / `#FF9100` | Small stamp or underline only when it improves the composition |
-| Secondary reference | `#FFF1D1` / `#00B7CD` | Available cream/cyan reference colors; not required in the first composition |
+| Desk | `#455056` | Quiet charcoal/slate surround |
+| Sheet | `#F8F6EE` | Ivory paper under the supplied photographic texture |
+| Ink | `#282E31` | Main readable text |
+| Notebook rule | `#A9C3C9` | Subtle horizontal lines and blue margin rule |
+| Red | `#BC2C45` | Tiny expressive accents and hover response |
+| Olive | `#63773F` | Small yin-yang patterned card only |
 
-The four leading pastel colors come from the supplied image; the dark ink is a proposed readability companion. Check contrast on the final textured surfaces. Do not set small text in pale green, pink, or orange simply to repeat the palette.
+The user's lined-paper CSS informs the sheet and introduction note. Their yin-yang and zig-zag recipes appear as small edge details rather than full-page backgrounds. The original creased JPG remains the sheet's photographic texture. The supplied transparent scrap PNGs form a taped portrait backing, a rough lower-left edge, and a cropped torn strip over the portrait. No decoration may cover copy or capture pointer events. The lower-left scrap is hidden on narrow screens where it would crowd content.
 
-Palette reference files supplied by the user:
+## Type and interaction
 
-- `/home/kareedesuka/Downloads/Color Hunt Palette a8df8ef0ffdfffd8dfffaab8.png`
-- `/home/kareedesuka/Downloads/Color Hunt Palette df301cff9100fff1d100b7cd.png`
+Super Adorable is the default display face for the full name, project names, and degree. Each name line changes independently to Papernotes on hover. Papernotes is also the handwritten role face and the alternate project-title face on hover or keyboard focus. Manrope serves dense factual copy and links. No cursive font is the default. Font files are self-hosted; publication rights are documented in [TYPOGRAPHY.md](TYPOGRAPHY.md).
 
-The hex values above make the brief usable without those machine-local files. Do not introduce a theme toggle.
+The supplied smiling cat is the default cursor on fine-pointer devices; the open-mouthed cat appears while pressed. Both are sized to avoid covering copy. The role label automatically swipes vertically through “backend engineer,” “avid rubber ducker,” and “just ...” inside a fixed-height slot, so the sheet does not resize. Reduced-motion users see the first phrase without animation. Project rows respond to hover, focus, and press with a subtle tint, font swap, and small offset. Touch devices retain the native cursor behavior. The supplied animated SVGs appear on the desk and 404 page; they are hidden for reduced-motion users. No entrance animation, scroll reveal, parallax, or animation library is used.
 
-## Texture and Stickers
+## Content and accessibility
 
-Supplied source assets, relative to the repository root:
+Keep the semantic reading order and grounded copy in [CONTENT.md](CONTENT.md). Projects link directly to their verified destinations. Contact links and the discreet PDF link stay on the sheet. `/resume.pdf` is a direct exported PDF (or `/<repository>/resume.pdf` on a GitHub Pages project site). Decorative images use empty alternative text. Keyboard focus and the skip link remain visible and usable. Contrast, horizontal overflow, and legibility matter more than adding more collage objects.
 
-- `resources/marjan-blan-5Ft4NWTmeJE-unsplash.jpg`: photographed creased paper, 2734 × 4101 pixels.
-- `resources/hand-drawn-retro-branding-labels-collection.zip`: contains `8268524.jpg`, `8268521.ai`, and `8268523.eps`.
-- `Pfp.jpg`: the existing monochrome personal identity image.
-
-The archive contains a sticker sheet preview and editable vector sources, not separate ready-to-use transparent sticker images. Use the supplied artwork to prepare clean individual assets during implementation; preserve source files.
-
-Initial art direction:
-
-- A smiling planet near the nameplate.
-- A flower following one paper margin.
-- Small checkerboard fragments connecting a couple of section boundaries.
-- A limited number of pink/green paper scraps or tabs, with slight fixed rotations and restrained physical shadows.
-- Keep the “2023” sticker out of the composition because its date is unrelated to the user's content.
-
-The visual motifs are decoration, not claims about personal interests. Palette adaptation of sticker artwork should favor the selected greens and pinks while retaining its recognizable drawing and outlines. Keep the identity image unchanged.
-
-Texture should remain visible enough to feel tactile, but quiet beneath body text. Use clear reading areas and bounded sticker clusters. Do not place the entire sticker contact sheet behind the resume, repeat the same JPG as a wallpaper, or add a generic unrelated sticker pack.
-
-Decorative elements should have empty alternative text or be hidden from assistive technology and should not intercept pointer input. Do not hide facts inside raster images.
-
-## Typography
-
-The user replaced the initial demo archives with Awesome and Priestacy. Both were inspected and specimen-rendered. They are expressive display assets, not interchangeable body fonts.
-
-| Archive | Current role | Observed constraint |
-| --- | --- | --- |
-| `fonts/awesome.zip` | Full-name brush lettering | Personal-use website embedding only under the included EULA |
-| `fonts/priestacy.zip` | Handwritten role lettering | Included PDF limits use to personal, non-promotional purposes |
-
-The local implementation uses Awesome for the name, Priestacy for the role strip, and self-hosted Manrope for body text, dates, links, and metadata. The top folio labels, their rule, the decorative top tape, and the “A personal résumé” kicker were removed at the user's request.
-
-The included font terms do not establish permission for a promotional professional portfolio. [TYPOGRAPHY.md](TYPOGRAPHY.md) records the license findings and publication condition. The prior Fraunces asset remains available as an OFL fallback; the currently selected fonts are for local review until the intended public use is licensed.
-
-## Responsive and Static Behavior
-
-- On mobile, use one reading column, comfortable text size, and reduced sticker overlap. Preserve the palette, nameplate, texture, and distinctive edge details.
-- Keep decorative overflow controlled so it does not create horizontal scrolling or obscure links.
-- No accordion, tab, or route navigation should be necessary to read the resume.
-- Keep all decoration stationary. Hover and focus should clarify links without moving the composition.
-- The page remains real HTML text with ordinary links, not a flattened poster image or embedded PDF.
-- `/resume.pdf` remains independently accessible, with the existing GitHub Pages base-path behavior.
-
-## Resource Direction
-
-There is enough supplied visual material for the first composition. More assets are optional, not a prerequisite. If the collage later needs more personal character, request specific objects or illustrations connected to the user's actual interests instead of inventing them.
-
-Any future fetching should solve an identified gap, such as a complete usable font or an appropriate personal motif. Do not fetch unrelated packs merely to increase decorative density.
+The supplied square identity artwork remains unchanged. Do not invent a portrait or personal facts. Do not add unrelated sticker packs or a theme switcher. The implementation and verification details are in [IMPLEMENTATION.md](IMPLEMENTATION.md).

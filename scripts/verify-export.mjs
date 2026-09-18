@@ -27,10 +27,12 @@ for (const page of pages) {
 const home = await readFile(resolve(root, "index.html"), "utf8");
 assert.ok(home.includes(`href="${base}/resume.pdf"`), "Wrong resume link");
 assert.ok(home.includes(`${base}/art/paper.webp`), "Missing paper texture reference");
-for (const name of ["planet.png", "flower.png", "checker.png"]) {
+for (const name of ["scrap-taped.png", "scrap-rough.png", "scrap-strips.png", "cursor-default-small.png", "cursor-pressed-small.png"]) {
   assert.ok(home.includes(`${base}/art/${name}`), `Missing ${name} reference`);
   assert.equal((await readFile(resolve(root, `art/${name}`))).subarray(0, 8).toString("hex"), "89504e470d0a1a0a");
 }
+assert.ok(home.includes(`${base}/art/cat-playing.svg`), "Missing animated cat reference");
+assert.ok((await readFile(resolve(root, "404.html"), "utf8")).includes(`${base}/art/cat-404.svg`), "Missing 404 cat reference");
 for (const oldRoute of ["work/index.html", "about/index.html"]) {
   assert.equal(await stat(resolve(root, oldRoute)).catch(() => null), null, `Obsolete route still exported: ${oldRoute}`);
 }

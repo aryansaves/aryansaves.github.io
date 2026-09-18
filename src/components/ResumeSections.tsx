@@ -1,4 +1,4 @@
-import { education, identity, profiles, projects } from "@/lib/content";
+import { education, identity, projects } from "@/lib/content";
 import { publicUrl } from "@/lib/urls";
 import styles from "./ResumeSections.module.css";
 
@@ -9,7 +9,6 @@ export function ResumeSections() {
         <section className={styles.projects} aria-labelledby="projects-heading">
           <div className={styles.sectionHead}>
             <h2 id="projects-heading">Projects</h2>
-            <span aria-hidden="true">01 / 04</span>
           </div>
           <ol className={styles.projectList}>
             {projects.map((project, index) => (
@@ -63,26 +62,11 @@ export function ResumeSections() {
         </div>
       </div>
 
-      <section className={styles.contact} id="contact" aria-labelledby="contact-heading">
-        <div className={styles.contactTitle}>
-          <h2 id="contact-heading">Contact</h2>
-          <a href={`mailto:${identity.email}`} className={styles.email}>
-            {identity.email}<span aria-hidden="true"> ↗</span>
-          </a>
-        </div>
-        <div className={styles.contactLinks}>
-          <ul aria-label="Social profiles">
-            {profiles.map((profile) => (
-              <li key={profile.label}>
-                <a href={profile.href}>{profile.label}<span aria-hidden="true"> ↗</span></a>
-              </li>
-            ))}
-          </ul>
-          <a href={publicUrl("/resume.pdf")} className={styles.resumeLink}>
-            Resume PDF <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
+      <footer className={styles.resumeFooter}>
+        <a href={publicUrl("/resume.pdf")} className={styles.resumeLink}>
+          Resume PDF <span aria-hidden="true">↗</span>
+        </a>
+      </footer>
     </>
   );
 }

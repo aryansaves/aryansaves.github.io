@@ -2,7 +2,7 @@
 
 A Next.js, React, TypeScript, and CSS Modules portfolio exported statically for GitHub Pages.
 
-The site is one centered, compact pastel scrapbook résumé. Projects, education, practical details, contact, and the PDF link live on the same sheet. The page uses the supplied paper and sticker artwork, with no Work/About/Resume navigation. `/resume.pdf` remains directly accessible.
+The site is one centered, compact notebook scrapbook résumé. Projects, education, practical details, contact, and the PDF link live on the same ivory sheet over a charcoal desk. It uses the supplied paper, scrap, cat, and font assets, with no Work/About/Resume navigation. `/resume.pdf` remains directly accessible.
 
 ## Local development
 
@@ -13,7 +13,7 @@ npm ci
 npm run dev
 ```
 
-Open http://localhost:3000. Manrope is self-hosted from the Fontsource package; the local design uses the supplied Awesome and Priestacy fonts for the nameplate. Their bundled terms are personal-use only, so review [the font notes](docs/TYPOGRAPHY.md) before publishing or pushing font files to a public repository. Metadata uses `SITE_URL` when set; no production domain is invented for local builds.
+Open http://localhost:3000. Manrope is self-hosted from the Fontsource package; the local design uses the supplied Super Adorable and Papernotes fonts for expressive type. Review [the font notes](docs/TYPOGRAPHY.md) before publishing or pushing font files to a public repository. Metadata uses `SITE_URL` when set; no production domain is invented for local builds.
 
 ## Verify the static site
 

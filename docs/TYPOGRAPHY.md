@@ -1,12 +1,13 @@
 # Typography
 
-The résumé name uses the supplied **Awesome** brush font. **Priestacy** gives the “Backend Engineer” paper strip a handwritten contrast. The existing Manrope variable font remains the body, project, metadata, and link face so the small text stays readable. Both supplied fonts cover the exact name and role text.
+The default display face is **Super Adorable**, used for the full name, project names, and degree. **Papernotes** supplies the handwritten role label and the project-title hover/focus swap. **Manrope** stays on paragraphs, factual details, and links for legibility. The old cursive/brush Awesome and Priestacy faces are no longer loaded.
 
-The two font files used by `next/font/local` are `src/assets/fonts/Awesome.otf` and `src/assets/fonts/Priestacy.otf`, extracted without modification from the user's `fonts/awesome.zip` and `fonts/priestacy.zip`. Next.js copies them into the static export with base-path-aware URLs. The earlier OFL Fraunces file remains in `public/type/` as an unused alternative.
+`src/assets/fonts/SuperAdorable.ttf` and `src/assets/fonts/Papernotes.woff2` were extracted from the user's ZIPs and loaded with `next/font/local`, which includes them in the static export. Original ZIPs remain in `fonts/` and are ignored by Git.
 
-## Supplied license terms
+## Publication rights
 
-- Awesome's bundled `1001fonts-awesome-eula.txt` permits personal-use embedding in a website, but excludes business, commercial, or income-generating use and prohibits publishing the original font ZIP as a download.
-- Priestacy's bundled “IMPORTANT INFORMATION ABOUT THIS FONT !!!.pdf” says personal use only and explicitly excludes promotional and commercial use. It does not grant public professional-portfolio use.
+- The Super Adorable archive labels the font “Freeware”; its [FontSpace page](https://www.fontspace.com/super-adorable-font-f147900) states free personal and commercial use.
+- The Papernotes archive has no license text. Its [DaFont page](https://www.dafont.com/papernotes.font) labels it **free for personal use** and offers a commercial license. A public professional portfolio may require that license or a replacement font. This implementation is ready for local review; resolve this before public deployment.
+- The previously supplied Awesome and Priestacy archives carry personal-use restrictions. They remain available locally as historical sources but are not active in this design.
 
-The implementation is a **local visual prototype** using these supplied fonts. Before publishing the portfolio or pushing the font files to a public repository, obtain the licenses appropriate to that use or replace them with fonts whose terms cover it. Calling a ZIP “free to use” does not supersede the terms included inside it. The original local ZIPs and their license documents remain in `fonts/`; ZIPs are gitignored to avoid publishing their bundled specimen images and source archives.
+The local font files should not be pushed to a public repository until the intended use and redistribution terms have been checked.

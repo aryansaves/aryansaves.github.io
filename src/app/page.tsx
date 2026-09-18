@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ResumeSections } from "@/components/ResumeSections";
-import { identity } from "@/lib/content";
+import { RoleRotator } from "@/components/RoleRotator";
+import { identity, profiles } from "@/lib/content";
 import { pageMetadata, publicUrl } from "@/lib/urls";
 import styles from "./page.module.css";
 
@@ -16,8 +17,8 @@ export default function Home() {
       className={styles.stage}
       id="main"
       style={{
-        "--cursor-default": `url('${publicUrl("/art/cursor-default.png")}') 8 6, auto`,
-        "--cursor-pressed": `url('${publicUrl("/art/cursor-pressed.png")}') 8 6, auto`,
+        "--cursor-default": `url('${publicUrl("/art/cursor-default-small.png")}') 5 4, auto`,
+        "--cursor-pressed": `url('${publicUrl("/art/cursor-pressed-small.png")}') 5 4, auto`,
       } as React.CSSProperties}
     >
       <a className="skip-link" href="#resume-content">Skip to resume content</a>
@@ -29,25 +30,36 @@ export default function Home() {
         <div className={styles.paperTint} aria-hidden="true" />
         <Image className={`${styles.scrap} ${styles.scrapTaped}`} src={publicUrl("/art/scrap-taped.png")} alt="" width={612} height={408} aria-hidden="true" />
         <Image className={`${styles.scrap} ${styles.scrapRough}`} src={publicUrl("/art/scrap-rough.png")} alt="" width={612} height={408} aria-hidden="true" />
-        <Image className={`${styles.scrap} ${styles.scrapStrips}`} src={publicUrl("/art/scrap-strips.png")} alt="" width={588} height={424} aria-hidden="true" />
 
         <div className={styles.sheetContent}>
-          <header className={styles.nameplate}>
-            <div className={styles.nameBlock}>
-              <h1 id="page-title" className={styles.name}>
-                <span>Aryan Kumar</span>
-                <span>Srivastava</span>
-              </h1>
-              <p className={styles.role}><span>{identity.role}</span></p>
+          <header className={styles.pageHeader}>
+            <div className={styles.contactHeader}>
+              <a className={styles.contactLink} href={`mailto:${identity.email}`} aria-label={`Email ${identity.email}`}>Contact ↗</a>
+              <ul aria-label="Social profiles">
+                {profiles.map((profile) => (
+                  <li key={profile.label}><a href={profile.href}>{profile.label} ↗</a></li>
+                ))}
+              </ul>
             </div>
-            <div className={styles.photo}>
-              <Image src={publicUrl("/identity.jpg")} alt={identity.imageAlt} width={399} height={399} priority />
-              <span aria-hidden="true">AKS</span>
+            <div className={styles.nameplate}>
+              <div className={styles.nameBlock}>
+                <h1 id="page-title" className={styles.name} aria-label="Aryan Kumar Srivastava">
+                  <span className={styles.nameLine} data-hover="Aryan Kumar">Aryan Kumar</span>
+                  <span className={styles.nameLine} data-hover="Srivastava">Srivastava</span>
+                </h1>
+                <p className={styles.role}><RoleRotator /></p>
+              </div>
+              <div
+                className={styles.photo}
+                style={{ "--photo-tape": `url('${publicUrl("/art/scrap-strips.png")}')` } as React.CSSProperties}
+              >
+                <Image src={publicUrl("/identity.jpg")} alt={identity.imageAlt} width={399} height={399} priority />
+              </div>
             </div>
           </header>
 
           <p className={styles.intro}>
-            A backend engineer based in Delhi, studying computer science with a specialization in AI at KIET.
+            Mostly backend, databases, distributed systems with a soft spot for designing good-looking web stuff
           </p>
 
           <div id="resume-content" className={styles.resumeContent} tabIndex={-1}>

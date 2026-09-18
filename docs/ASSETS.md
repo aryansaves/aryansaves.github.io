@@ -1,16 +1,20 @@
 # Prepared visual assets
 
-The original files in `resources/` remain unchanged. The page can use these small, static exports from `public/art/`:
+The page uses the following exports from `public/art/`. Originals in `resources/` remain unchanged.
 
-| File | Size | Source and preparation |
+| Export | Source | Use |
 | --- | --- | --- |
-| `paper.webp` | 1200 × 1800, 33 KB | Resized and compressed from `resources/marjan-blan-5Ft4NWTmeJE-unsplash.jpg`; retains the photographed creases. |
-| `planet.png` | 344 × 279, 43 KB | Transparent crop of the smiling planet rendered from `8268521.ai` in the supplied sticker ZIP. |
-| `flower.png` | 222 × 489, 47 KB | Transparent crop of the flower panel from the same Illustrator source. |
-| `checker.png` | 266 × 261, 33 KB | Transparent crop of the checkerboard flower badge from the same Illustrator source. |
+| `paper.webp` | `resources/marjan-blan-5Ft4NWTmeJE-unsplash.jpg` | Compressed photographic crease/fiber layer under the notebook rules |
+| `scrap-taped.png` | `resources/olga-thelavart-uP4jLndMWnY-unsplash-removebg-preview.png` | Portrait backing |
+| `scrap-rough.png` | `resources/olga-thelavart-RyrFRsVoe2Q-unsplash-removebg-preview.png` | Lower-left torn edge on wider screens |
+| `scrap-strips.png` | `resources/teuku-fadhil-t6w_PBhYuDI-unsplash-removebg-preview.png` | Cropped torn strip over the portrait |
+| `cursor-default-small.png` | `resources/cursor_hover.png` | Transparent 26×26 smiling cat cursor |
+| `cursor-pressed-small.png` | `resources/cursor_click.png` | Transparent 26×26 open-mouthed pressed cursor |
+| `cat-playing.svg` | `resources/svg/Cat playing animation.svg` | Small animated desk detail |
+| `cat-404.svg` | `resources/svg/404 error page with cat.svg` | Decorative custom 404 artwork |
 
-The Illustrator file contains a PDF-compatible vector preview. These PNGs were rendered from that preview, cropped around each illustrated sticker, and had only the surrounding paper-colored background removed. The illustrated interiors and outlines were retained. The dated `2023` badge was not exported.
+The source cat cursor PNGs had large opaque white canvases. The transparent cutouts were made through the built-in ImageGen background-extraction mode with prompts to preserve the original cat drawings while removing only the white background, then trimmed and downsampled to 48×48 and finally 26×26 with ImageMagick. The 26×26 versions are used so the cursor does not cover text. This is a derived cutout, not a byte-exact transformation; inspect the originals if exact line fidelity is important. The SVGs were checked for scripts and external references before use. `Hands typing on keyboard.svg` was left out because it is much larger and visually unnecessary.
 
-Use these as decorative assets with empty alt text, away from copy and links. The white source texture can sit over the green paper color at low opacity or with a suitable blend mode; check text contrast in the rendered page.
+The earlier `planet.png`, `flower.png`, and `checker.png` exports remain in the repository but are no longer used. Decorative images have empty alt text and no pointer interaction.
 
-The supplied archive contains artwork but no license file. The paper image filename indicates an Unsplash source, but no license or attribution record is bundled. Confirm publication rights for both sources before making the site public; this note does not establish a license.
+The supplied assets do not include a complete license/provenance record. Confirm rights for the paper photograph, scrap PNGs, cursor art, and animated SVGs before public deployment.

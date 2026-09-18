@@ -38,7 +38,7 @@ During implementation, copy the asset into the site's public assets and use its 
 - Canonical resume file: `public/resume.pdf` relative to the repository root. The original `public/Backend-resume.pdf` is retained as an archival copy.
 - Resume web path: `/resume.pdf`. An account-root site or custom domain exposes this exact root path; a GitHub Pages project site prefixes it with its repository path.
 - Resume label: Resume
-- Contact label: Contact; use a direct email link in the contact section.
+- Contact label: Contact; use a direct email link in the sheet header.
 - Custom domain: not provided. Start with the GitHub Pages address.
 
 ## Education
