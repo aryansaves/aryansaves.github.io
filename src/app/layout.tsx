@@ -5,14 +5,14 @@ import { publicUrl } from "@/lib/urls";
 import "./globals.css";
 
 const displayFont = localFont({
-  src: "../assets/fonts/Awesome.otf",
+  src: "../assets/fonts/SuperAdorable.ttf",
   variable: "--font-display",
   display: "swap",
   weight: "400",
 });
 
 const accentFont = localFont({
-  src: "../assets/fonts/Priestacy.otf",
+  src: "../assets/fonts/Papernotes.woff2",
   variable: "--font-accent",
   display: "swap",
   weight: "400",

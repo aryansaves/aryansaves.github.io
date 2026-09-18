@@ -12,7 +12,14 @@ export const metadata = pageMetadata(
 
 export default function Home() {
   return (
-    <main className={styles.stage} id="main">
+    <main
+      className={styles.stage}
+      id="main"
+      style={{
+        "--cursor-default": `url('${publicUrl("/art/cursor-default.png")}') 8 6, auto`,
+        "--cursor-pressed": `url('${publicUrl("/art/cursor-pressed.png")}') 8 6, auto`,
+      } as React.CSSProperties}
+    >
       <a className="skip-link" href="#resume-content">Skip to resume content</a>
       <article
         className={styles.sheet}
@@ -20,9 +27,9 @@ export default function Home() {
         style={{ "--paper-image": `url('${publicUrl("/art/paper.webp")}')` } as React.CSSProperties}
       >
         <div className={styles.paperTint} aria-hidden="true" />
-        <Image className={`${styles.sticker} ${styles.planet}`} src={publicUrl("/art/planet.png")} alt="" width={344} height={279} aria-hidden="true" />
-        <Image className={`${styles.sticker} ${styles.flower}`} src={publicUrl("/art/flower.png")} alt="" width={222} height={489} aria-hidden="true" />
-        <Image className={`${styles.sticker} ${styles.checker}`} src={publicUrl("/art/checker.png")} alt="" width={266} height={261} aria-hidden="true" />
+        <Image className={`${styles.scrap} ${styles.scrapTaped}`} src={publicUrl("/art/scrap-taped.png")} alt="" width={612} height={408} aria-hidden="true" />
+        <Image className={`${styles.scrap} ${styles.scrapRough}`} src={publicUrl("/art/scrap-rough.png")} alt="" width={612} height={408} aria-hidden="true" />
+        <Image className={`${styles.scrap} ${styles.scrapStrips}`} src={publicUrl("/art/scrap-strips.png")} alt="" width={588} height={424} aria-hidden="true" />
 
         <div className={styles.sheetContent}>
           <header className={styles.nameplate}>
@@ -48,6 +55,7 @@ export default function Home() {
           </div>
         </div>
       </article>
+      <Image className={styles.playingCat} src={publicUrl("/art/cat-playing.svg")} alt="" width={1070} height={456} aria-hidden="true" unoptimized />
     </main>
   );
 }
