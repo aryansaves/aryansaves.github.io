@@ -1,12 +1,13 @@
 .stage {
   min-height: 100vh;
-  padding: clamp(22px, 6vh, 68px) 24px;
+  padding: clamp(18px, 3vh, 34px) 24px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   position: relative;
   isolation: isolate;
   overflow: clip;
+  background-color: var(--surround);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -16,67 +17,82 @@
 
 .playingCat {
   position: absolute;
-  width: 216px;
+  z-index: 2;
+  width: 170px;
   height: auto;
-  right: max(-20px, calc(50% - 610px));
-  bottom: 28px;
+  right: -170px;
+  bottom: 0;
   pointer-events: none;
 }
 
-.stage::before,
-.stage::after {
-  content: "";
+.notebook {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 760px);
+  perspective: 1800px;
+}
+
+.underPage {
   position: absolute;
-  z-index: -1;
-  box-shadow: 0 12px 24px rgba(14, 23, 27, .2);
+  inset: 0;
+  border: 1px solid var(--paper-edge);
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 27px, rgba(137, 168, 177, .11) 28px 29px),
+    #eee9dc;
+  box-shadow: 4px 7px 0 rgba(40, 46, 49, .12);
   pointer-events: none;
 }
 
-.stage::before {
-  width: 132px;
-  height: 132px;
-  left: max(-30px, calc(50% - 570px));
-  top: 14%;
-  border: 7px solid #f4f0e4;
-  transform: rotate(-13deg);
-  background:
-    radial-gradient(circle at 50% 59%, #d2caab 3%, #364e27 4%, #364e27 11%, transparent 12%) 50px 0,
-    radial-gradient(circle at 50% 41%, #364e27 3%, #d2caab 4%, #d2caab 11%, transparent 12%) 50px 0,
-    radial-gradient(circle at 50% 59%, #d2caab 3%, #364e27 4%, #364e27 11%, transparent 12%) 0 50px,
-    radial-gradient(circle at 50% 41%, #364e27 3%, #d2caab 4%, #d2caab 11%, transparent 12%) 0 50px,
-    radial-gradient(circle at 100% 50%, #d2caab 16%, transparent 17%),
-    radial-gradient(circle at 0% 50%, #364e27 16%, transparent 17%),
-    radial-gradient(circle at 100% 50%, #d2caab 16%, transparent 17%) 50px 50px,
-    radial-gradient(circle at 0% 50%, #364e27 16%, transparent 17%) 50px 50px;
-  background-color: var(--olive);
-  background-size: 100px 100px;
-}
-
-.stage::after {
-  width: 196px;
-  height: 42px;
-  right: max(-65px, calc(50% - 585px));
-  bottom: 12%;
-  border: 5px solid #f4f0e4;
-  transform: rotate(12deg);
-  background:
-    linear-gradient(135deg, #eceddc 25%, transparent 25%) -50px 0,
-    linear-gradient(225deg, #eceddc 25%, transparent 25%) -50px 0,
-    linear-gradient(315deg, #eceddc 25%, transparent 25%),
-    linear-gradient(45deg, #eceddc 25%, transparent 25%);
-  background-size: 100px 100px;
-  background-color: #ec173a;
-}
+.underPageBack { z-index: 0; transform: translate(11px, 10px) rotate(.45deg); }
+.underPageFront { z-index: 1; transform: translate(6px, 5px) rotate(.2deg); }
 
 .sheet {
+  z-index: 2;
   --margin-line: 43px;
   position: relative;
   isolation: isolate;
-  width: min(100%, 760px);
-  min-height: 930px;
+  width: 100%;
   background: var(--paper);
   border: 1px solid var(--paper-edge);
   box-shadow: 0 24px 52px rgba(14, 23, 27, .25), 5px 7px 0 rgba(14, 23, 27, .18);
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.binding {
+  position: absolute;
+  z-index: 4;
+  top: 24px;
+  bottom: 24px;
+  left: -8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  pointer-events: none;
+}
+
+.bindingHole {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #e8e1d2;
+  border-radius: 50%;
+  background: #43514f;
+  box-shadow: inset 2px 2px 3px rgba(12, 20, 20, .55), 1px 1px 0 rgba(255, 255, 255, .55);
+}
+
+.bindingHole::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: -18px;
+  width: 22px;
+  height: 6px;
+  border: 2px solid #876f55;
+  border-right: 0;
+  border-radius: 8px 0 0 8px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .5);
 }
 
 .paperTint {
@@ -97,7 +113,7 @@
 .sheetContent {
   position: relative;
   z-index: 1;
-  padding: 30px 58px 50px;
+  padding: 30px 58px clamp(58px, 7vh, 76px);
 }
 
 .contactHeader {
@@ -108,6 +124,12 @@
   font-size: 10px;
   line-height: 1.3;
   color: var(--muted);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 
 .contactHeader a {
@@ -124,6 +146,37 @@
   transition: transform .16s ease, background-color .16s ease;
 }
 .contactHeader .contactLink { border-left: 2px solid var(--accent-red); font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.contactHeader .resumeLink {
+  position: relative;
+  z-index: 1;
+  border-left: 2px solid var(--olive);
+  background: rgba(255, 255, 252, .74);
+  box-shadow: 1px 2px 0 rgba(40, 46, 49, .11);
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.resumeBadge {
+  margin-left: 5px;
+  padding: 1px 3px;
+  background: var(--olive);
+  color: #fffdf7;
+  font-family: var(--sans);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.contactHeader .resumeLink:hover,
+.contactHeader .resumeLink:focus-visible {
+  background: #f2eedf;
+  box-shadow: 2px 3px 0 rgba(40, 46, 49, .14);
+  transform: translateY(-2px);
+}
+
 .contactHeader a:hover, .contactHeader a:focus-visible { background: #f2eedf; transform: translateY(-2px); }
 .contactHeader ul { display: flex; flex-wrap: nowrap; gap: 7px; list-style: none; margin: 0; padding: 0; }
 
@@ -137,7 +190,6 @@
 }
 
 .scrapTaped { width: 480px; right: -95px; top: 50px; transform: rotate(8deg); }
-.scrapRough { width: 560px; left: -245px; bottom: 2px; transform: rotate(-9deg); }
 
 .nameplate {
   display: grid;
@@ -172,8 +224,8 @@
   transition: opacity .2s ease;
   pointer-events: none;
 }
-.nameLine:hover { color: transparent; }
-.nameLine:hover::after { opacity: 1; }
+.nameLine:hover, .nameLine:focus-visible { color: transparent; }
+.nameLine:hover::after, .nameLine:focus-visible::after { opacity: 1; }
 .role { height: 58px; margin: 19px 0 0; }
 
 .photo {
@@ -205,17 +257,41 @@
 .photo img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; display: block; }
 
 .intro {
-  max-width: 520px;
   margin: 30px 0 35px;
-  padding: 14px 18px 14px 39px;
-  border: 1px solid rgba(137, 168, 177, .46);
-  background-color: rgba(255, 255, 252, .92);
-  background-image:
-    linear-gradient(90deg, transparent 26px, #abced4 26px, #abced4 28px, transparent 28px),
-    repeating-linear-gradient(to bottom, transparent 0 26px, rgba(137, 168, 177, .24) 27px 28px);
-  box-shadow: 3px 4px 0 rgba(40, 46, 49, .12);
-  font-size: 14px;
-  line-height: 1.55;
+  padding: 10px 12px 11px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px 9px;
+  border-left: 3px solid var(--accent-red);
+  background: rgba(255, 255, 252, .64);
+  box-shadow: 2px 3px 0 rgba(40, 46, 49, .1);
+  line-height: 1.35;
+}
+
+.introLead {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+.introAside {
+  position: relative;
+  z-index: 0;
+  padding: 1px 5px 2px;
+  font-family: var(--accent);
+  font-size: 17px;
+  line-height: 1.1;
+  transform: rotate(-.6deg);
+}
+
+.introAside::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 48% 0 0;
+  background: rgba(255, 232, 137, .78);
+  transform: rotate(.8deg);
 }
 
 .resumeContent:focus { outline: none; }
@@ -226,7 +302,6 @@
 
 @media (max-width: 700px) {
   .stage { padding: 22px 18px 42px; }
-  .stage::before, .stage::after { display: none; }
   .sheet { min-height: 0; }
   .sheetContent { padding: 28px 30px 39px; }
   .contactHeader a { display: inline-flex; align-items: center; min-height: 44px; }
@@ -235,16 +310,25 @@
   .photo { width: 112px; }
   .photo::before { transform: scale(.8) rotate(-7deg); transform-origin: center; }
   .scrapTaped { width: 390px; right: -115px; top: 35px; }
-  .scrapRough { width: 450px; left: -220px; bottom: 0; }
+  .playingCat { display: none; }
+}
+
+@media (max-width: 1100px) {
   .playingCat { display: none; }
 }
 
 @media (max-width: 480px) {
   .stage { padding: 12px 10px 36px; }
   .sheet { --margin-line: 11px; }
+  .binding { left: -6px; }
+  .bindingHole { width: 13px; height: 13px; border-width: 2px; }
+  .bindingHole::before { left: -13px; width: 16px; height: 5px; }
   .sheetContent { padding: 23px 19px 32px; }
   .contactHeader { gap: 5px; font-size: 9px; }
+  .headerActions { gap: 4px; }
   .contactHeader a { padding: 4px; }
+  .contactHeader .resumeLink { font-size: 9px; }
+  .resumeBadge { display: none; }
   .contactHeader ul { gap: 4px; }
   .nameplate { padding-top: 12px; grid-template-columns: minmax(0, 1fr) 88px; }
   .name { font-size: clamp(34px, 10vw, 46px); }
@@ -252,9 +336,10 @@
   .role { margin-top: 14px; }
   .photo { width: 88px; padding: 5px; }
   .photo::before { left: calc(50% - 49px); }
-  .intro { margin: 24px 0 28px; font-size: 13px; padding: 11px 12px 11px 38px; }
+  .intro { margin: 24px 0 28px; padding: 10px 10px 11px; }
+  .introLead { font-size: 12px; }
+  .introAside { font-size: 15px; }
   .scrapTaped { width: 310px; right: -95px; top: 26px; }
-  .scrapRough { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -262,4 +347,15 @@
   .missingCat { display: none; }
   .nameLine, .nameLine::after { transition: none; }
   .contactHeader a { transition: none; }
+}
+
+.nameBlock { min-width: 0; }
+.nameLine:focus-visible { outline: 2px dashed var(--ink); outline-offset: 3px; }
+
+@media (max-width: 360px) {
+  .contactHeader { flex-wrap: wrap; gap: 4px 8px; }
+  .contactHeader ul { margin-left: auto; }
+  .nameplate { position: relative; grid-template-columns: 1fr; }
+  .photo { position: absolute; right: 0; bottom: 0; width: 68px; }
+  .role { margin-right: 80px; }
 }

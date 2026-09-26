@@ -5,8 +5,14 @@
   text-align: left;
 }
 
-.body section,
-.resumeFooter {
+.body section {
+  min-width: 0;
+}
+
+.primaryColumn {
+  display: grid;
+  align-content: start;
+  gap: 25px;
   min-width: 0;
 }
 
@@ -147,22 +153,6 @@
   line-height: 1.4;
 }
 
-.resumeFooter {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: clamp(25px, 4vw, 38px);
-  padding: 14px 0 0;
-  border-top: 1px solid currentColor;
-}
-
-.resumeLink {
-  color: inherit;
-  font-size: 11px;
-  font-weight: 600;
-  text-decoration: none;
-}
-.resumeLink:hover, .resumeLink:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
-
 @media (prefers-reduced-motion: reduce) {
   .projectLink, .projectName { transition: none; }
 }
@@ -189,9 +179,4 @@
     gap: 22px;
   }
 
-  .resumeLink {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-  }
 }

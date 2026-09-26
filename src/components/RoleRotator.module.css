@@ -82,3 +82,7 @@
   .track { animation: none; will-change: auto; }
   .frame:not(:first-child) { display: none; }
 }
+
+@media (max-width: 360px) {
+  .paper { padding-inline: 8px; font-size: 18px; }
+}

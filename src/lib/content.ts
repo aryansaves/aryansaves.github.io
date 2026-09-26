@@ -1,7 +1,6 @@
 // Publication source: docs/CONTENT.md. Unconfirmed descriptions stay omitted.
 export const identity = {
   name: "Aryan Kumar Srivastava",
-  shortName: "Aryan",
   role: "Backend Engineer",
   location: "Delhi",
   timezone: "IST",
@@ -29,12 +28,16 @@ export type Project = {
   name: string;
   href: string;
   destination: "Source" | "Live site";
-  selected: boolean;
 };
 
 export const projects: readonly Project[] = [
-  { name: "servee", href: "https://github.com/aryansaves/servee", destination: "Source", selected: true },
-  { name: "clockwork", href: "https://github.com/aryansaves/clockwork", destination: "Source", selected: true },
-  { name: "Feedback", href: "https://github.com/aryansaves/Feedback", destination: "Source", selected: true },
-  { name: "Eiga", href: "https://eiga.pages.dev", destination: "Live site", selected: false },
+  { name: "Eiga", href: "https://eiga.pages.dev", destination: "Live site" },
+  { name: "Feedback", href: "https://github.com/aryansaves/Feedback", destination: "Source" },
+  { name: "clockwork", href: "https://github.com/aryansaves/clockwork", destination: "Source" },
 ];
+
+export const experience = {
+  organization: "Node.js",
+  contribution: "PR #64024",
+  href: "https://github.com/nodejs/node/pull/64024",
+} as const;
