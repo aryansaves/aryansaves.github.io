@@ -2,7 +2,7 @@
 
 A Next.js, React, TypeScript, and CSS Modules portfolio exported statically for GitHub Pages.
 
-The site is one centered, compact notebook scrapbook résumé. Projects, education, practical details, contact, and the PDF link live on the same ivory sheet over a patterned collage desk. It uses the supplied paper, scrap, cat, and font assets, with no Work/About/Resume navigation. `/resume.pdf` remains directly accessible.
+The site is one centered, compact notebook scrapbook portfolio. Projects, open-source work, education, practical details, and contact live on the same ivory sheet over a patterned collage desk. It uses the supplied paper, scrap, cat, and font assets, with no Work/About/Resume navigation. The initial launch intentionally does not publish a résumé PDF.
 
 ## Local development
 
@@ -25,25 +25,15 @@ npm run verify
 npm run preview
 ```
 
-The export verifier checks the one-page route, custom 404, HTML and CSS asset paths, interactive audio and SVGs, reduced-motion SVGs, unchanged identity image, and canonical PDF.
+The export verifier checks the one-page route, custom 404, HTML and CSS asset paths, interactive audio and SVGs, reduced-motion SVGs, unchanged identity image, and confirms that no résumé is accidentally published.
 
 `preview` serves `out/` at port 3000 with real 404 responses and no SPA fallback. It is a local verification utility, not a production server. Set `PORT` to change its port.
 
 To test project-site deployment, build, verify, and preview with the same `NEXT_PUBLIC_BASE_PATH=/portfolio` environment variable. Root deployments leave that variable empty. See `.env.example` for build configuration. `SITE_URL` must be the complete deployed site URL, including its repository prefix when applicable.
 
-## Resume at /resume.pdf
-
-`public/resume.pdf` is the canonical resume. Replace that file to update it, then rebuild and deploy. It is served directly as a PDF, without a server endpoint, download wrapper, or separate HTML page. The original supplied `resources/archive/Backend-resume.pdf` is retained as an archival copy; site navigation uses only `resume.pdf`.
-
-- **Account site (recommended for the requested root endpoint):** a repository named `aryansaves.github.io` publishes at `https://aryansaves.github.io/`, giving `https://aryansaves.github.io/resume.pdf`.
-- **Project site:** a repository named `portfolio` publishes the PDF at `https://aryansaves.github.io/portfolio/resume.pdf`. This repository cannot publish outside its own path.
-- **Custom domain:** a root domain configured for this site exposes `https://your-domain/resume.pdf`.
-
-These are deployment examples using the supplied GitHub handle, not claims that a remote repository or deployment already exists. This workspace has local Git history but no connected remote.
-
 ## GitHub Pages setup
 
-1. Push the project to the intended GitHub repository. Use an account-site repository if the root `/resume.pdf` URL is required without a custom domain.
+1. Push the project to the intended GitHub repository.
 2. In repository **Settings → Pages**, choose **GitHub Actions** as the publishing source.
 3. Run the included workflow on the default branch, or push a change there. Other branches and pull requests build and validate without publishing.
 4. The workflow derives the base path and canonical site URL from the actual repository. It publishes `out/` after all checks pass.
@@ -66,4 +56,4 @@ ESLint is pinned to the 9.x major because the React plugin bundled with the curr
 
 Four torn-paper scraps start in randomized, separate margin slots on desktop. Dragging stays free; clicking changes their pattern. Hiding all four completely beneath the notebook triggers 48 overlapping rainbow-cat paper scraps and the supplied jackpot sound. The centre contains only “ALL SCRAPS LOST!” and an enlarged 8-bit cat. Clicking the cat (or activating it with the keyboard) reloads the page into a new arrangement. There is no automatic reload. Reduced-motion preferences use still cat artwork.
 
-Only active web assets live in `public/`; unused earlier fonts, cursor sizes, artwork, and the original PDF are preserved in `resources/archive/`. Local `.codex/` settings and generated build output are ignored.
+Only active web assets live in `public/`. Redundant source copies and earlier unused exports were removed before launch and remain recoverable from Git history. Local `.codex/` settings and generated build output are ignored.

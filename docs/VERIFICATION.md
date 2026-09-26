@@ -1,16 +1,16 @@
-# Release verification — 2026-09-26
+# Release verification — 2026-09-27
 
 Verified locally with Node.js 26.8.1; GitHub Actions uses the repository's Node.js 24 configuration.
 
-- ESLint and TypeScript: passed.
+- ESLint, TypeScript, and `git diff --check`: passed.
 - Production static build and export verification: passed for both `/` and `/portfolio`.
-- Production dependency audit: zero reported vulnerabilities (`npm audit --omit=dev`).
-- Static HTTP responses: PDF, jackpot MP3, and rainbow-cat SVG returned 200 with correct MIME types; a missing path returned the custom HTML with status 404.
-- Browser review: desktop plus 390px and 320px widths. Fixed the narrow name/portrait overlap and the clipped header link; final 320px header links fit without horizontal overflow.
-- Production Easter egg: all four dragged scraps triggered the overlay; all 48 rainbow-cat images and the central cat loaded. Only “ALL SCRAPS LOST!” appears as visible text. Focus stays on the cat, and activating it reloads the page. No automatic refresh occurs.
-- Reduced-motion SVGs: export assertions confirm that still variants contain no animation elements. CSS and picture-source handling were reviewed; OS-level reduced-motion emulation was not run.
-- Browser error log: no errors during the successful production-page checks. Temporary local-server connection errors were resolved by restarting the preview.
+- Production dependency audit: zero reported vulnerabilities (`npm audit --omit=dev --audit-level=high`).
+- Secret-pattern scan: no API keys, private keys, credentials, or password assignments found in the tracked launch tree.
+- SVG safety: every published SVG is checked for scripts, foreign objects, event handlers, and external or JavaScript references; reduced-motion variants contain no animation elements.
+- Résumé removal: the header link, metadata reference, source PDF, archival draft, and exported endpoint are absent. The export verifier fails if `resume.pdf` returns.
+- Browser review: desktop and 390px layouts render without broken images, horizontal overflow, résumé links, console errors, or warnings. Contact, social profiles, all three projects, and Open Source Work remain visible.
+- Repository cleanup: removed redundant raw media, duplicated audio and SVG sources, unused font exports, source ZIPs, and prior archive files. Active optimized assets remain in `public/`; removed tracked files are recoverable from Git history.
 
-The sandbox prevented Next.js from capturing its TypeScript subprocess output; the authorized build outside the sandbox passed with no application workaround. Local preview also required permission to bind a port.
+The sandbox could not capture Next.js's TypeScript subprocess output, so the production builds ran through the authorized external command path and passed without an application workaround. No remote is configured, no push or deployment was performed, and GitHub-hosted CI has not yet run.
 
-No remote is configured, no push or deployment was performed, and GitHub-hosted CI has not yet run. Remaining publication setup: connect the intended repository, enable Pages via GitHub Actions, and resolve the pre-existing font/art provenance notes in TYPOGRAPHY.md and ASSETS.md.
+Before a public launch, confirm redistribution and commercial-use rights for the local fonts and supplied artwork described in [TYPOGRAPHY.md](TYPOGRAPHY.md) and [ASSETS.md](ASSETS.md).

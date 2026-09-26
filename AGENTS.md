@@ -12,7 +12,7 @@ The selected visual identity is a notebook scrapbook résumé: an ivory ruled an
 - Follow the user's current art direction; the existing monochrome implementation is a starting codebase, not the desired visual reference.
 - Center the paper sheet in the viewport. Keep body text legible and aligned within it; centering the sheet does not require centering every line.
 - Use one page for identity, projects, education, availability, and contact. Do not add Home/Work/About/Resume navigation or separate content pages.
-- Keep `/resume.pdf` available as a direct static PDF, with a discreet link inside the sheet.
+- Do not publish or link a résumé for the initial launch. Add one later only when the user provides and approves the final PDF.
 - Treat maximalism as a deliberate composition of type, colored paper, texture, and sticker clusters. Use the user's assets before adding unrelated decoration.
 - Preserve clear reading order, keyboard navigation, contrast, touch targets, and responsive behavior. Decorative assets must not cover essential copy or intercept clicks.
 - Keep motion modest. The user explicitly requested the supplied cat cursors, hover/click responses, font swaps, and small animated SVGs; support reduced motion and avoid entrance effects, parallax, or scroll reveals.

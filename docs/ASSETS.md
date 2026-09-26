@@ -1,6 +1,6 @@
 # Prepared visual assets
 
-The page uses artwork in `public/art/` and audio in `public/audio/`. Originals in `resources/` remain unchanged.
+The page uses artwork in `public/art/` and audio in `public/audio/`. The source filenames below record provenance; redundant originals were removed from the launch tree after the runtime exports were verified and remain recoverable from Git history.
 
 | Export | Source | Use |
 | --- | --- | --- |
@@ -20,7 +20,7 @@ The page uses artwork in `public/art/` and audio in `public/audio/`. Originals i
 
 The source cat cursor PNGs had large opaque white canvases. The transparent cutouts were made through the built-in ImageGen background-extraction mode with prompts to preserve the original cat drawings while removing only the white background, then trimmed and downsampled to 48×48 and finally 26×26 with ImageMagick. The 26×26 versions are used so the cursor does not cover text. This is a derived cutout, not a byte-exact transformation; inspect the originals if exact line fidelity is important. The SVGs were checked for scripts and external references before use. `Hands typing on keyboard.svg` was left out because it is much larger and visually unnecessary.
 
-`planet.png` and `flower.png` decorate the draggable scraps. Earlier unused checker artwork, larger cursors, and Fraunces font exports are preserved in `resources/archive/` and no longer shipped. Decorative images have empty alt text; their enclosing scrap buttons provide the interaction.
+`planet.png` and `flower.png` decorate the draggable scraps. Earlier unused checker artwork, larger cursors, source ZIPs, and font exports are no longer present in the launch tree. Decorative images have empty alt text; their enclosing scrap buttons provide the interaction.
 
 The supplied audio files contain multiple successive effects. The active MP3 exports isolate one hit from each source, convert it to mono at 44.1 kHz and 96 kbps, and keep playback volume deliberately low. Browser autoplay policies mean hover sound begins after the visitor's first pointer or keyboard interaction; directly pressing a sound-enabled item also plays its effect.
 

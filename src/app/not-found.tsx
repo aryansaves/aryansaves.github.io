@@ -10,7 +10,7 @@ export default function NotFound() {
         <p className={styles.kicker}>404 / Page not found</p>
         <h1 className={styles.name}>Nothing here.</h1>
         <p>The page you were looking for could not be found.</p>
-        <Link href="/">Return to the résumé ↗</Link>
+        <Link href="/">Return to the portfolio ↗</Link>
         <Image className={styles.missingCat} src={publicUrl("/art/cat-404.svg")} alt="" width={950} height={847} aria-hidden="true" unoptimized />
       </section>
     </main>

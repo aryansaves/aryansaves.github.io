@@ -29,17 +29,15 @@ User-supplied draft positioning, retained for reference: “turn your pitches in
 
 During implementation, copy the asset into the site's public assets and use its deployment-aware URL. Do not expose a local filesystem path in the website.
 
-## Contact and Resume
+## Contact
 
 - Email: aryansrivastava354@gmail.com
 - GitHub: https://github.com/aryansaves
 - LinkedIn: https://www.linkedin.com/in/aryankumarsrivastava/
 - X: https://x.com/kareedesuka
-- Canonical resume file: `public/resume.pdf` relative to the repository root. The original `resources/archive/Backend-resume.pdf` is retained as an archival copy.
-- Resume web path: `/resume.pdf`. An account-root site or custom domain exposes this exact root path; a GitHub Pages project site prefixes it with its repository path.
-- Resume label: Resume
 - Contact label: Contact; use a direct email link in the sheet header.
 - Custom domain: not provided. Start with the GitHub Pages address.
+- Resume: intentionally omitted from the initial launch. Add a PDF and link only after the user provides and approves the final document.
 
 ## Education
 
@@ -65,7 +63,7 @@ The portfolio is one centered, compact static resume sheet. There is no Home/Wor
 - Projects: Eiga, Feedback, and clockwork in that order, grouped compactly on the main sheet.
 - Open Source Work: the confirmed Node.js contribution link, without unverified descriptive claims.
 - Education and practical details: confirmed degree, institution, dates, location, time zone, and availability.
-- Header: email, a highlighted direct link to `/resume.pdf`, and maintained social links.
+- Header: email and maintained social links.
 
 Until descriptions are verified, project entries may display supplied names and destination links only. Do not display missing-description notices, guessed stacks, years, outcomes, empty experience entries, or editorial TODOs. Keep long project narratives out of this compact version rather than creating additional pages.
 

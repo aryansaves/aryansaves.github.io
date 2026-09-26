@@ -20,7 +20,7 @@ const accentFont = localFont({
 
 export const metadata: Metadata = {
   title: { default: `${identity.name} — ${identity.role}`, template: `%s — ${identity.name}` },
-  description: "Aryan Kumar Srivastava. Backend engineer based in Delhi. Projects, education, contact, and resume.",
+  description: "Aryan Kumar Srivastava. Backend engineer based in Delhi. Projects, open-source work, education, and contact.",
   icons: { icon: publicUrl("/identity.jpg") },
 };
 

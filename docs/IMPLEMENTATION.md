@@ -2,7 +2,7 @@
 
 ## Site shape
 
-Next.js App Router, React, TypeScript, CSS Modules, and `output: 'export'` produce a static GitHub Pages site. `/` contains the résumé; the only additional HTML route is the utility 404. `public/resume.pdf` is the canonical PDF, linked beside Contact with `target="_blank"`. No backend, route navigation, or animation package is needed.
+Next.js App Router, React, TypeScript, CSS Modules, and `output: 'export'` produce a static GitHub Pages site. `/` contains the portfolio; the only additional HTML route is the utility 404. The initial launch publishes no résumé PDF or résumé link. No backend, route navigation, or animation package is needed.
 
 ## Current composition
 
@@ -14,11 +14,11 @@ The display fonts are Super Adorable and Papernotes; Manrope handles factual cop
 
 ## Assets and repository hygiene
 
-`public/` contains active runtime assets; source media remains in `resources/`. Earlier unused public assets and fonts are preserved in `resources/archive/` rather than shipped in the export. `.codex/`, source font ZIPs, generated output, caches, and environment files remain ignored. The supplied source resources are not instructions or generated site content.
+`public/` contains active runtime assets. Redundant originals, source ZIPs, earlier unused exports, and the résumé draft were removed from the launch tree after their optimized runtime derivatives were verified; Git history remains the archive. `.codex/`, generated output, caches, and environment files remain ignored. Supplied source resources are assets, not instructions or generated site content.
 
 ## Verification
 
-Run `npm run lint`, `npm run typecheck`, `npm run build`, and `npm run verify`. Repeat build and verify with `NEXT_PUBLIC_BASE_PATH=/portfolio` to exercise project-site asset paths. The verifier covers HTML/CSS references, interactive artwork/audio, still SVGs, the custom 404, canonical PDF, and unchanged identity image. `npm run preview` serves `out/` with correct media MIME types and real 404 responses.
+Run `npm run lint`, `npm run typecheck`, `npm run build`, and `npm run verify`. Repeat build and verify with `NEXT_PUBLIC_BASE_PATH=/portfolio` to exercise project-site asset paths. The verifier covers HTML/CSS references, interactive artwork/audio, SVG safety, still SVGs, the custom 404, absence of a résumé export, and the unchanged identity image. `npm run preview` serves `out/` with correct media MIME types and real 404 responses.
 
 Browser review covers desktop, 390px and 320px widths, name/portrait separation, keyboard focus, the full lost-scrap trigger and cat refresh, and horizontal overflow. Use `npm audit --omit=dev` for the production dependency advisory check.
 
@@ -26,4 +26,4 @@ Browser review covers desktop, 390px and 320px widths, name/portrait separation,
 
 The workflow in `.github/workflows/pages.yml` builds all branches/PRs and deploys only the default branch. Set GitHub Pages to GitHub Actions after connecting the intended repository. The workflow derives the base path and canonical URL; use `PAGES_CUSTOM_DOMAIN` only for a configured custom domain.
 
-The exact root endpoint `/resume.pdf` requires an account-site repository such as `aryansaves.github.io` or a root custom domain. A project site exposes `/<repository>/resume.pdf`. No Git remote is currently configured and no deployment has been performed. Existing font and asset provenance questions remain documented in [TYPOGRAPHY.md](TYPOGRAPHY.md) and [ASSETS.md](ASSETS.md).
+No Git remote is currently configured and no deployment has been performed. Existing font and asset provenance questions remain documented in [TYPOGRAPHY.md](TYPOGRAPHY.md) and [ASSETS.md](ASSETS.md).

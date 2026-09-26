@@ -9,7 +9,7 @@ import styles from "./page.module.css";
 
 export const metadata = pageMetadata(
   "Backend Engineer",
-  "Aryan Kumar Srivastava — backend engineer in Delhi. Projects, education, contact, and resume.",
+  "Aryan Kumar Srivastava — backend engineer in Delhi. Projects, open-source work, education, and contact.",
   "/",
 );
 
@@ -27,7 +27,7 @@ export default function Home() {
         titleSrc={publicUrl("/audio/font-title.mp3")}
         itemSrc={publicUrl("/audio/font-item.mp3")}
       />
-      <a className="skip-link" href="#resume-content">Skip to resume content</a>
+      <a className="skip-link" href="#portfolio-content">Skip to portfolio content</a>
       <div className={styles.notebook} data-page-current="1">
         <span className={`${styles.underPage} ${styles.underPageBack}`} aria-hidden="true" />
         <span className={`${styles.underPage} ${styles.underPageFront}`} aria-hidden="true" />
@@ -46,18 +46,7 @@ export default function Home() {
           <div className={styles.sheetContent}>
             <header>
               <div className={styles.contactHeader}>
-                <div className={styles.headerActions}>
-                  <a className={styles.contactLink} href={`mailto:${identity.email}`} aria-label={`Email ${identity.email}`}>Contact ↗</a>
-                  <a
-                    className={styles.resumeLink}
-                    href={publicUrl("/resume.pdf")}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Open résumé PDF in a new tab"
-                  >
-                    Resume <span className={styles.resumeBadge} aria-hidden="true">PDF</span><span aria-hidden="true"> ↗</span>
-                  </a>
-                </div>
+                <a className={styles.contactLink} href={`mailto:${identity.email}`} aria-label={`Email ${identity.email}`}>Contact ↗</a>
                 <ul aria-label="Social profiles">
                   {profiles.map((profile) => (
                     <li key={profile.label}><a href={profile.href}>{profile.label} ↗</a></li>
@@ -86,7 +75,7 @@ export default function Home() {
               <span className={styles.introAside}>with a soft spot for designing good-looking web stuff</span>
             </p>
 
-            <div id="resume-content" className={styles.resumeContent} tabIndex={-1}>
+            <div id="portfolio-content" className={styles.resumeContent} tabIndex={-1}>
               <ResumeSections />
             </div>
           </div>

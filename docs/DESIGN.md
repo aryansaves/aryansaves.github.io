@@ -2,7 +2,7 @@
 
 ## Selected composition
 
-One centered, compact résumé sheet on an interactive collage desk. It is a static-exported web page, not an embedded PDF or a multipage portfolio. The name, role, supplied square identity image, factual introduction, projects, open-source work, education, practical details, contact, and PDF link stay in one readable sequence. The sheet is 760px wide at most and its height follows the content with a responsive 58–76px lower paper margin instead of a literal A4-height minimum. This optical page proportion preserves a physical-paper ending while allowing common desktop viewports to show the complete sheet without scrolling; smaller screens retain natural vertical scrolling and tighter spacing.
+One centered, compact portfolio sheet on an interactive collage desk. It is a static-exported web page, not an embedded PDF or a multipage portfolio. The name, role, supplied square identity image, factual introduction, projects, open-source work, education, practical details, and contact stay in one readable sequence. The sheet is 760px wide at most and its height follows the content with a responsive 58–76px lower paper margin instead of a literal A4-height minimum. This optical page proportion preserves a physical-paper ending while allowing common desktop viewports to show the complete sheet without scrolling; smaller screens retain natural vertical scrolling and tighter spacing.
 
 The latest art direction replaces the earlier pink/green pastel palette. Maximalism comes from layers of real paper, notebook rules, torn edges, tape, a few patterned cutouts, and playful type. The content stays upright and selectable. There is no Home/Work/About/Resume bar.
 
@@ -15,7 +15,6 @@ The latest art direction replaces the earlier pink/green pastel palette. Maximal
 | Ink | `#282E31` | Main readable text |
 | Notebook rule | `#A9C3C9` | Subtle horizontal lines and blue margin rule |
 | Red | `#BC2C45` | Tiny expressive accents and hover response |
-| Olive | `#63773F` | Restrained résumé-link accent |
 
 The background is a collage of rust checkerboard, teal wave, and mustard striped paper over cream graph paper with the supplied photographic grain. Pattern techniques take inspiration from [Lea Verou’s gallery](https://projects.verou.me/css3patterns/); composition and direct manipulation take inspiration from [Codrops’ cutout collage](https://tympanus.net/Tutorials/CutoutCollageLayout/) and [dragging experiments](https://tympanus.net/Development/ImageDraggingEffects/). These are references for an original local implementation, without remote dependencies.
 
@@ -33,7 +32,7 @@ The supplied smiling cat is the default cursor on fine-pointer devices; the open
 
 ## Content and accessibility
 
-Keep the semantic reading order and grounded copy in [CONTENT.md](CONTENT.md). Projects link directly to their verified destinations. The résumé link sits directly after Contact in the header as a restrained paper chip with a small olive PDF label. The introduction pairs a clean sans-serif lead with a handwritten highlighted ending for a controlled, playful accent. `/resume.pdf` is a direct exported PDF (or `/<repository>/resume.pdf` on a GitHub Pages project site). Decorative images use empty alternative text. Keyboard focus and the skip link remain visible and usable. Contrast, horizontal overflow, and legibility matter more than adding more collage objects.
+Keep the semantic reading order and grounded copy in [CONTENT.md](CONTENT.md). Projects link directly to their verified destinations. The introduction pairs a clean sans-serif lead with a handwritten highlighted ending for a controlled, playful accent. The initial launch does not include a résumé link or PDF. Decorative images use empty alternative text. Keyboard focus and the skip link remain visible and usable. Contrast, horizontal overflow, and legibility matter more than adding more collage objects.
 
 The supplied square identity artwork remains unchanged. Do not invent a portrait or personal facts. Do not add unrelated sticker packs or a theme switcher. The implementation and verification details are in [IMPLEMENTATION.md](IMPLEMENTATION.md).
 

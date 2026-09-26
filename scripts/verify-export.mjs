@@ -25,8 +25,8 @@ for (const page of pages) {
 }
 
 const home = await readFile(resolve(root, "index.html"), "utf8");
-assert.match(home, /target="_blank"[^>]*aria-label="Open résumé PDF in a new tab"/, "Resume should open in a new tab");
-assert.ok(home.includes(`href="${base}/resume.pdf"`), "Wrong resume link");
+assert.ok(!home.includes("resume.pdf"), "Resume link should not be published");
+assert.equal(await stat(resolve(root, "resume.pdf")).catch(() => null), null, "Resume PDF should not be exported");
 assert.ok(home.includes(`${base}/art/paper.webp`), "Missing paper texture reference");
 for (const name of ["scrap-taped.png", "scrap-rough.png", "scrap-strips.png", "cursor-default-small.png", "cursor-pressed-small.png"]) {
   assert.ok(home.includes(`${base}/art/${name}`), `Missing ${name} reference`);
@@ -37,9 +37,6 @@ assert.ok((await readFile(resolve(root, "404.html"), "utf8")).includes(`${base}/
 for (const oldRoute of ["work/index.html", "about/index.html"]) {
   assert.equal(await stat(resolve(root, oldRoute)).catch(() => null), null, `Obsolete route still exported: ${oldRoute}`);
 }
-const exported = await readFile(resolve(root, "resume.pdf"));
-assert.equal(exported.subarray(0, 5).toString(), "%PDF-");
-assert.ok(exported.equals(await readFile("public/resume.pdf")), "Exported PDF differs from canonical resume");
 assert.ok((await readFile(resolve(root, "identity.jpg"))).equals(await readFile("Pfp.jpg")), "Identity image was altered");
 // These resources are requested only after interaction, so they are absent from HTML.
 for (const name of ["8-bit-cat.svg", "8-bit-cat-still.svg", "rainbow-cat-remix.svg", "rainbow-cat-remix-still.svg", "planet.png", "flower.png"]) {
@@ -50,6 +47,10 @@ for (const name of ["8-bit-cat.svg", "8-bit-cat-still.svg", "rainbow-cat-remix.s
     assert.ok(!/<script\b|<foreignObject\b|\bon\w+\s*=|(?:href|src)\s*=\s*["'](?:https?:|\/\/|javascript:)/i.test(svg), `Unsafe SVG content: ${name}`);
     if (name.endsWith("-still.svg")) assert.ok(!/<(?:animate\w*|set)\b/.test(svg), `Reduced-motion SVG animates: ${name}`);
   }
+}
+for (const name of ["cat-playing.svg", "cat-404.svg"]) {
+  const svg = (await readFile(resolve(root, "art", name))).toString();
+  assert.ok(!/<script\b|<foreignObject\b|\bon\w+\s*=|(?:href|src)\s*=\s*["'](?:https?:|\/\/|javascript:)/i.test(svg), `Unsafe SVG content: ${name}`);
 }
 for (const name of ["font-title.mp3", "font-item.mp3", "casino-jackpot.mp3"]) {
   assert.ok((await readFile(resolve(root, "audio", name))).equals(await readFile(resolve("public/audio", name))), `Missing audio: ${name}`);
@@ -67,4 +68,4 @@ for (const entry of await readdir(resolve(root, "_next/static"), { recursive: tr
     checked++;
   }
 }
-console.log(`Verified single-sheet export, 404, ${checked} internal URLs, artwork, original identity image, and ${base}/resume.pdf.`);
+console.log(`Verified single-sheet export, 404, ${checked} internal URLs, artwork, original identity image, and absence of a published resume.`);
