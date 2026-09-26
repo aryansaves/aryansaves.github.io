@@ -15,7 +15,7 @@ Do not invent or embellish roles, dates, project functionality, technologies, ou
 - Time zone: IST
 - Availability: after 5pm and on weekends
 
-Initial masthead: full name plus “Backend Engineer.” No additional hero tagline is finalized.
+Initial masthead: full name plus “Backend Engineer.” The confirmed introduction is “Mostly backend, databases, distributed systems with a soft spot for designing good-looking web stuff”.
 
 User-supplied draft positioning, retained for reference: “turn your pitches into reality.” The current brief omits this line in favor of concise factual copy; the richer visual style does not require promotional claims. Do not silently replace it with another promotional claim.
 
@@ -35,7 +35,7 @@ During implementation, copy the asset into the site's public assets and use its 
 - GitHub: https://github.com/aryansaves
 - LinkedIn: https://www.linkedin.com/in/aryankumarsrivastava/
 - X: https://x.com/kareedesuka
-- Canonical resume file: `public/resume.pdf` relative to the repository root. The original `public/Backend-resume.pdf` is retained as an archival copy.
+- Canonical resume file: `public/resume.pdf` relative to the repository root. The original `resources/archive/Backend-resume.pdf` is retained as an archival copy.
 - Resume web path: `/resume.pdf`. An account-root site or custom domain exposes this exact root path; a GitHub Pages project site prefixes it with its repository path.
 - Resume label: Resume
 - Contact label: Contact; use a direct email link in the sheet header.
@@ -52,19 +52,20 @@ During implementation, copy the asset into the site's public assets and use its 
 
 No coursework or academic highlights have been supplied. Do not infer them from independent study notes.
 
-## Experience and Personal Bio
+## Open Source Work and Personal Bio
 
-No employment entries, final short bio, or personal goal have been supplied. Omit empty sections and generic personality filler. The single resume sheet can use a brief introduction derived from confirmed identity and education details.
+No employment entries, final short bio, or personal goal have been supplied. The Open Source Work section may include the confirmed Node.js contribution link without inventing a role, date, description, or status. Omit generic personality filler. The single resume sheet can use a brief introduction derived from confirmed identity and education details.
 
 ## Single-Sheet Content Hierarchy
 
 The portfolio is one centered, compact static resume sheet. There is no Home/Work/About/Resume navigation bar and no separate Work or About content page.
 
 - Nameplate: full name, Backend Engineer, and the supplied identity image.
-- Introduction: a short factual sentence using confirmed identity and education; no invented biography.
-- Projects: servee, clockwork, Feedback, and Eiga in the supplied order, grouped compactly on the main sheet.
+- Introduction: the user-provided backend, databases, distributed systems, and web-design phrase above.
+- Projects: Eiga, Feedback, and clockwork in that order, grouped compactly on the main sheet.
+- Open Source Work: the confirmed Node.js contribution link, without unverified descriptive claims.
 - Education and practical details: confirmed degree, institution, dates, location, time zone, and availability.
-- Closing: email, maintained social links, and a discreet direct link to `/resume.pdf`.
+- Header: email, a highlighted direct link to `/resume.pdf`, and maintained social links.
 
 Until descriptions are verified, project entries may display supplied names and destination links only. Do not display missing-description notices, guessed stacks, years, outcomes, empty experience entries, or editorial TODOs. Keep long project narratives out of this compact version rather than creating additional pages.
 
@@ -235,10 +236,10 @@ Keep the single sheet compact. Use concise project summaries when verified; do n
 
 - Confirm an optional short bio and current-focus sentence; otherwise omit them.
 - Verify descriptions, role, technical context, and any status/year for servee, clockwork, Feedback, and Eiga.
-- Review the compact project order if desired: servee, clockwork, Feedback, Eiga.
+- Keep the confirmed project order: Eiga, Feedback, clockwork. Servee remains historical reference only.
 - Confirm whether Kiroku is public and portfolio-ready; omit until confirmed.
 - Verify the Node.js PR's actual contribution and status before describing it.
 - Confirm any technical skills to publish; the candidate list above is not an expertise claim.
-- Add experience only if real entries are supplied.
+- Expand experience only when real entries are supplied.
 
 Repository ownership/name and the final deployment address are setup tasks in [IMPLEMENTATION.md](IMPLEMENTATION.md), not personal copy.

@@ -8,6 +8,6 @@ The default display face is **Super Adorable**, used for the full name, project 
 
 - The Super Adorable archive labels the font “Freeware”; its [FontSpace page](https://www.fontspace.com/super-adorable-font-f147900) states free personal and commercial use.
 - The Papernotes archive has no license text. Its [DaFont page](https://www.dafont.com/papernotes.font) labels it **free for personal use** and offers a commercial license. A public professional portfolio may require that license or a replacement font. This implementation is ready for local review; resolve this before public deployment.
-- The previously supplied Awesome and Priestacy archives carry personal-use restrictions. They remain available locally as historical sources but are not active in this design.
+- The previously supplied Awesome and Priestacy archives carry personal-use restrictions. They are archived in `resources/archive/fonts/` and are not bundled in the site.
 
 The local font files should not be pushed to a public repository until the intended use and redistribution terms have been checked.

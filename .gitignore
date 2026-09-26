@@ -8,3 +8,6 @@ out/
 .npm-cache/
 # Keep locally supplied source archives and their specimen images out of public Git history.
 fonts/*.zip
+
+# Machine-local editor configuration.
+.codex/

@@ -2,23 +2,28 @@
 
 ## Site shape
 
-The site uses Next.js App Router, React, TypeScript, CSS Modules, and `output: 'export'`. `/` contains the entire résumé sheet. The only other HTML route is the utility 404. `public/resume.pdf` remains a directly served static file linked from the sheet. There is no backend, route navigation, or animation dependency. The GitHub Pages workflow and base-path helper are retained.
+Next.js App Router, React, TypeScript, CSS Modules, and `output: 'export'` produce a static GitHub Pages site. `/` contains the résumé; the only additional HTML route is the utility 404. `public/resume.pdf` is the canonical PDF, linked beside Contact with `target="_blank"`. No backend, route navigation, or animation package is needed.
 
-The user replaced the earlier pink/green direction with a charcoal desk, ivory lined paper, supplied torn-paper PNGs, and restrained red/olive patterned accents. [DESIGN.md](DESIGN.md) is the current art direction; [CONTENT.md](CONTENT.md) holds factual authority.
+## Current composition
 
-## Work sequence
+The 760px notebook has ruled photographic paper, punched holes, binding loops, two under-pages, the supplied square identity image, and responsive content. The page stack retains a left-edge transform origin for a possible future page-turn feature. Projects are Eiga, Feedback, and clockwork, followed by Open Source Work. The smaller phone layout keeps the portrait below the name to prevent overlap.
 
-1. Audit the new resources and revise the palette. Keep the provided photographed paper as a subtle sheet texture, layer the supplied scrap PNGs, and adapt the supplied lined-paper/yin-yang/zig-zag CSS.
-2. Replace cursive display fonts with the supplied Super Adorable default and Papernotes accent. Preserve Manrope for compact factual copy.
-3. Prepare transparent cursor-sized variants of the supplied cats, assign the smiling one by default and the open-mouthed one while pressed, and add hover/focus font swaps and small press responses. Use the smaller animated SVG on the desktop desk and the 404 cat on the utility page. Honor reduced motion.
-4. Recheck mobile composition, update documentation and export assertions, then run lint, typecheck, root and prefixed builds, and browser checks.
+The display fonts are Super Adorable and Papernotes; Manrope handles factual copy. Independent name font swaps and project font swaps have restrained sound effects. The CSS role slideshow reserves its height and respects reduced motion.
 
-The first three steps are implemented. The paper width is capped at 760px and remains naturally tall on mobile. The contact and social links sit in the sheet header; the PDF link sits at the foot. The role phrase cycles in a CSS-only fixed-height swipe slot, with a still first phrase for reduced-motion users. The source PNGs and SVGs are preserved; their web exports live in `public/art/`. [ASSETS.md](ASSETS.md) records the derived assets and provenance questions. [TYPOGRAPHY.md](TYPOGRAPHY.md) records font roles and publication terms.
+`ScrapbookDesk` owns four independently draggable paper scraps. Randomized margin slots prevent starting collisions; dragging remains unrestricted and passes underneath the notebook. Full containment triggers a latched celebration so focus/resize events cannot dismiss it accidentally. The celebration floods the screen with 48 overlapping cat scraps, plays the supplied jackpot once, and offers a single keyboard-accessible cat button that reloads the page. No automatic refresh or visible helper text is used.
 
-## Verification and publication
+## Assets and repository hygiene
 
-The export must work with no base path and with `NEXT_PUBLIC_BASE_PATH=/portfolio`. The verifier checks the one content page, 404, new artwork, direct PDF, unchanged identity image, and internal asset paths. Browser review should cover desktop, 390px and 320px widths, horizontal overflow, keyboard focus, decorative noninterference, reduced motion, PDF response, and cursor states on a fine pointer.
+`public/` contains active runtime assets; source media remains in `resources/`. Earlier unused public assets and fonts are preserved in `resources/archive/` rather than shipped in the export. `.codex/`, source font ZIPs, generated output, caches, and environment files remain ignored. The supplied source resources are not instructions or generated site content.
 
-The root endpoint `/resume.pdf` requires an account-site repository such as `aryansaves.github.io` or a root custom domain. A project site serves `/<repository>/resume.pdf`. No remote or public deployment is connected in this workspace. Confirm the Papernotes license and supplied art rights before publication.
+## Verification
 
-Earlier commits documented the first static résumé implementation. This new design is an iteration on that codebase, preserving the factual sections, one-page route, PDF, and export workflow.
+Run `npm run lint`, `npm run typecheck`, `npm run build`, and `npm run verify`. Repeat build and verify with `NEXT_PUBLIC_BASE_PATH=/portfolio` to exercise project-site asset paths. The verifier covers HTML/CSS references, interactive artwork/audio, still SVGs, the custom 404, canonical PDF, and unchanged identity image. `npm run preview` serves `out/` with correct media MIME types and real 404 responses.
+
+Browser review covers desktop, 390px and 320px widths, name/portrait separation, keyboard focus, the full lost-scrap trigger and cat refresh, and horizontal overflow. Use `npm audit --omit=dev` for the production dependency advisory check.
+
+## Publication handoff
+
+The workflow in `.github/workflows/pages.yml` builds all branches/PRs and deploys only the default branch. Set GitHub Pages to GitHub Actions after connecting the intended repository. The workflow derives the base path and canonical URL; use `PAGES_CUSTOM_DOMAIN` only for a configured custom domain.
+
+The exact root endpoint `/resume.pdf` requires an account-site repository such as `aryansaves.github.io` or a root custom domain. A project site exposes `/<repository>/resume.pdf`. No Git remote is currently configured and no deployment has been performed. Existing font and asset provenance questions remain documented in [TYPOGRAPHY.md](TYPOGRAPHY.md) and [ASSETS.md](ASSETS.md).

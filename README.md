@@ -2,7 +2,7 @@
 
 A Next.js, React, TypeScript, and CSS Modules portfolio exported statically for GitHub Pages.
 
-The site is one centered, compact notebook scrapbook résumé. Projects, education, practical details, contact, and the PDF link live on the same ivory sheet over a charcoal desk. It uses the supplied paper, scrap, cat, and font assets, with no Work/About/Resume navigation. `/resume.pdf` remains directly accessible.
+The site is one centered, compact notebook scrapbook résumé. Projects, education, practical details, contact, and the PDF link live on the same ivory sheet over a patterned collage desk. It uses the supplied paper, scrap, cat, and font assets, with no Work/About/Resume navigation. `/resume.pdf` remains directly accessible.
 
 ## Local development
 
@@ -25,7 +25,7 @@ npm run verify
 npm run preview
 ```
 
-The export verifier checks the one-page route, custom 404, local links, artwork, unchanged identity image, and canonical PDF.
+The export verifier checks the one-page route, custom 404, HTML and CSS asset paths, interactive audio and SVGs, reduced-motion SVGs, unchanged identity image, and canonical PDF.
 
 `preview` serves `out/` at port 3000 with real 404 responses and no SPA fallback. It is a local verification utility, not a production server. Set `PORT` to change its port.
 
@@ -33,7 +33,7 @@ To test project-site deployment, build, verify, and preview with the same `NEXT_
 
 ## Resume at /resume.pdf
 
-`public/resume.pdf` is the canonical resume. Replace that file to update it, then rebuild and deploy. It is served directly as a PDF, without a server endpoint, download wrapper, or separate HTML page. The original supplied `public/Backend-resume.pdf` is retained as an archival copy; site navigation uses only `resume.pdf`.
+`public/resume.pdf` is the canonical resume. Replace that file to update it, then rebuild and deploy. It is served directly as a PDF, without a server endpoint, download wrapper, or separate HTML page. The original supplied `resources/archive/Backend-resume.pdf` is retained as an archival copy; site navigation uses only `resume.pdf`.
 
 - **Account site (recommended for the requested root endpoint):** a repository named `aryansaves.github.io` publishes at `https://aryansaves.github.io/`, giving `https://aryansaves.github.io/resume.pdf`.
 - **Project site:** a repository named `portfolio` publishes the PDF at `https://aryansaves.github.io/portfolio/resume.pdf`. This repository cannot publish outside its own path.
@@ -56,8 +56,14 @@ For a custom domain, configure it and its DNS in GitHub Pages, then set reposito
 - [Factual content and editorial TODOs](docs/CONTENT.md)
 - [Implementation decisions](docs/IMPLEMENTATION.md)
 
-Application facts are maintained in `src/lib/content.ts` and rendered by `src/components/ResumeSections.tsx`. Project descriptions, Kiroku, employment, and unverified contribution claims are omitted until confirmed. See [asset provenance](docs/ASSETS.md) and [font decisions](docs/TYPOGRAPHY.md) before public publication.
+Application facts are maintained in `src/lib/content.ts` and rendered by `src/components/ResumeSections.tsx`. The visible projects are Eiga, Feedback, and clockwork; Open Source Work links to the supplied Node.js PR. Unconfirmed descriptions, Kiroku, and employment claims remain omitted. See [asset provenance](docs/ASSETS.md) and [font decisions](docs/TYPOGRAPHY.md) before public publication.
 
 ## Tooling compatibility
 
 ESLint is pinned to the 9.x major because the React plugin bundled with the current Next.js lint configuration fails on ESLint 10. Update them together when that plugin supports the new API. Node.js 24 LTS is selected for CI; local verification in this workspace used Node.js 26.8.1.
+
+## Interactive desk
+
+Four torn-paper scraps start in randomized, separate margin slots on desktop. Dragging stays free; clicking changes their pattern. Hiding all four completely beneath the notebook triggers 48 overlapping rainbow-cat paper scraps and the supplied jackpot sound. The centre contains only “ALL SCRAPS LOST!” and an enlarged 8-bit cat. Clicking the cat (or activating it with the keyboard) reloads the page into a new arrangement. There is no automatic reload. Reduced-motion preferences use still cat artwork.
+
+Only active web assets live in `public/`; unused earlier fonts, cursor sizes, artwork, and the original PDF are preserved in `resources/archive/`. Local `.codex/` settings and generated build output are ignored.
