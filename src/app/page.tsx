@@ -8,7 +8,7 @@ import { pageMetadata, publicUrl } from "@/lib/urls";
 import styles from "./page.module.css";
 
 export const metadata = pageMetadata(
-  "Backend Engineer",
+  "Aryan",
   "Aryan Kumar Srivastava — backend engineer in Delhi. Projects, open-source work, education, and contact.",
   "/",
 );
