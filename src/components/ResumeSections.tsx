@@ -12,7 +12,7 @@ export function ResumeSections() {
           <ol className={styles.projectList}>
             {projects.map((project, index) => (
               <li key={project.name}>
-                <a href={project.href} className={styles.projectLink} data-font-sound="item">
+                <a href={project.href} target="_blank" rel="noopener noreferrer" className={styles.projectLink} data-font-sound="item">
                   <span className={styles.projectNumber} aria-hidden="true">
                     {String(index + 1).padStart(2, "0")}
                   </span>
@@ -32,7 +32,7 @@ export function ResumeSections() {
           </div>
           <ol className={styles.projectList}>
             <li>
-              <a className={styles.projectLink} href={experience.href} data-font-sound="item">
+              <a className={styles.projectLink} href={experience.href} target="_blank" rel="noopener noreferrer" data-font-sound="item">
                 <span className={styles.projectNumber} aria-hidden="true">01</span>
                 <span className={styles.projectName}>{experience.organization}</span>
                 <span className={styles.projectDestination}>

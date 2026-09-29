@@ -15,6 +15,7 @@
   .stage:active, .stage a:active { cursor: var(--cursor-pressed); }
 }
 
+
 .playingCat {
   position: absolute;
   z-index: 2;
@@ -143,16 +144,7 @@
 .contactHeader a:hover, .contactHeader a:focus-visible { background: #f2eedf; transform: translateY(-2px); }
 .contactHeader ul { display: flex; flex-wrap: nowrap; gap: 7px; list-style: none; margin: 0; padding: 0; }
 
-.scrap {
-  position: absolute;
-  z-index: 0;
-  display: block;
-  height: auto;
-  pointer-events: none;
-  filter: drop-shadow(0 7px 7px rgba(31, 40, 42, .16));
-}
 
-.scrapTaped { width: 480px; right: -95px; top: 50px; transform: rotate(8deg); }
 
 .nameplate {
   display: grid;
@@ -174,21 +166,12 @@
   color: var(--ink);
 }
 
-.nameLine { display: block; position: relative; width: fit-content; transition: color .2s ease; }
-.nameLine::after {
-  content: attr(data-hover);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: max-content;
-  color: var(--ink);
-  font-family: var(--accent);
-  opacity: 0;
-  transition: opacity .2s ease;
-  pointer-events: none;
+.nameLine {
+  display: block;
+  width: fit-content;
+  min-height: 1.1em;
 }
-.nameLine:hover, .nameLine:focus-visible { color: transparent; }
-.nameLine:hover::after, .nameLine:focus-visible::after { opacity: 1; }
+.nameLine:hover, .nameLine:focus-visible { font-family: var(--accent); }
 .role { height: 58px; margin: 19px 0 0; }
 
 .photo {
@@ -201,21 +184,6 @@
   transform: rotate(2deg);
 }
 
-.photo::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  top: -11px;
-  left: calc(50% - 49px);
-  width: 98px;
-  height: 18px;
-  background-image: var(--photo-tape);
-  background-size: 176px auto;
-  background-position: -43px -17px;
-  background-repeat: no-repeat;
-  transform: rotate(-7deg);
-  pointer-events: none;
-}
 
 .photo img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; display: block; }
 
@@ -261,7 +229,6 @@
 .missing { min-height: 0; padding: 50px; }
 .missing p:not(.kicker) { font-size: 15px; line-height: 1.6; }
 .missing a { font-weight: 800; text-underline-offset: 4px; }
-.missingCat { display: block; width: min(100%, 310px); height: auto; margin: 24px auto 0; }
 
 @media (max-width: 700px) {
   .stage { padding: 22px 18px 42px; }
@@ -271,9 +238,6 @@
   .nameplate { grid-template-columns: minmax(0, 1fr) 112px; gap: 12px; }
   .name { font-size: clamp(42px, 8.5vw, 61px); }
   .photo { width: 112px; }
-  .photo::before { transform: scale(.8) rotate(-7deg); transform-origin: center; }
-  .scrapTaped { width: 390px; right: -115px; top: 35px; }
-  .playingCat { display: none; }
 }
 
 @media (max-width: 1100px) {
@@ -295,17 +259,13 @@
   .kicker { font-size: 9px; }
   .role { margin-top: 14px; }
   .photo { width: 88px; padding: 5px; }
-  .photo::before { left: calc(50% - 49px); }
   .intro { margin: 24px 0 28px; padding: 10px 10px 11px; }
   .introLead { font-size: 12px; }
   .introAside { font-size: 15px; }
-  .scrapTaped { width: 310px; right: -95px; top: 26px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .playingCat { display: none; }
-  .missingCat { display: none; }
-  .nameLine, .nameLine::after { transition: none; }
   .contactHeader a { transition: none; }
 }
 

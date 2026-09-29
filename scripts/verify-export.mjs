@@ -28,31 +28,21 @@ const home = await readFile(resolve(root, "index.html"), "utf8");
 assert.ok(!home.includes("resume.pdf"), "Resume link should not be published");
 assert.equal(await stat(resolve(root, "resume.pdf")).catch(() => null), null, "Resume PDF should not be exported");
 assert.ok(home.includes(`${base}/art/paper.webp`), "Missing paper texture reference");
-for (const name of ["scrap-taped.png", "scrap-rough.png", "scrap-strips.png", "cursor-default-small.png", "cursor-pressed-small.png"]) {
+for (const name of ["cursor-default-small.png", "cursor-pressed-small.png"]) {
   assert.ok(home.includes(`${base}/art/${name}`), `Missing ${name} reference`);
   assert.equal((await readFile(resolve(root, `art/${name}`))).subarray(0, 8).toString("hex"), "89504e470d0a1a0a");
 }
-assert.ok(home.includes(`${base}/art/cat-playing.svg`), "Missing animated cat reference");
-assert.ok((await readFile(resolve(root, "404.html"), "utf8")).includes(`${base}/art/cat-404.svg`), "Missing 404 cat reference");
+assert.ok(home.includes(`${base}/art/cat-playing.svg`), "Missing restored playing cat");
+const playingCat = await readFile(resolve(root, "art/cat-playing.svg"), "utf8");
+assert.ok(!/<script\b|<foreignObject\b|\bon\w+\s*=|(?:href|src)\s*=\s*["'](?:https?:|\/\/|javascript:)/i.test(playingCat), "Unsafe playing-cat SVG");
+for (const removed of ["art/8-bit-cat.svg", "art/8-bit-cat-still.svg", "art/rainbow-cat-remix.svg", "art/rainbow-cat-remix-still.svg", "art/cat-404.svg", "art/flower.png", "art/planet.png", "art/scrap-rough.png", "art/scrap-taped.png", "art/scrap-strips.png", "audio/casino-jackpot.mp3"]) {
+  assert.equal(await stat(resolve(root, removed)).catch(() => null), null, `Removed asset still exported: ${removed}`);
+}
 for (const oldRoute of ["work/index.html", "about/index.html"]) {
   assert.equal(await stat(resolve(root, oldRoute)).catch(() => null), null, `Obsolete route still exported: ${oldRoute}`);
 }
 assert.ok((await readFile(resolve(root, "identity.jpg"))).equals(await readFile("Pfp.jpg")), "Identity image was altered");
-// These resources are requested only after interaction, so they are absent from HTML.
-for (const name of ["8-bit-cat.svg", "8-bit-cat-still.svg", "rainbow-cat-remix.svg", "rainbow-cat-remix-still.svg", "planet.png", "flower.png"]) {
-  const asset = await readFile(resolve(root, "art", name));
-  assert.ok(asset.equals(await readFile(resolve("public/art", name))), `Changed or missing interactive asset: ${name}`);
-  if (name.endsWith(".svg")) {
-    const svg = asset.toString();
-    assert.ok(!/<script\b|<foreignObject\b|\bon\w+\s*=|(?:href|src)\s*=\s*["'](?:https?:|\/\/|javascript:)/i.test(svg), `Unsafe SVG content: ${name}`);
-    if (name.endsWith("-still.svg")) assert.ok(!/<(?:animate\w*|set)\b/.test(svg), `Reduced-motion SVG animates: ${name}`);
-  }
-}
-for (const name of ["cat-playing.svg", "cat-404.svg"]) {
-  const svg = (await readFile(resolve(root, "art", name))).toString();
-  assert.ok(!/<script\b|<foreignObject\b|\bon\w+\s*=|(?:href|src)\s*=\s*["'](?:https?:|\/\/|javascript:)/i.test(svg), `Unsafe SVG content: ${name}`);
-}
-for (const name of ["font-title.mp3", "font-item.mp3", "casino-jackpot.mp3"]) {
+for (const name of ["font-title.mp3", "font-item.mp3"]) {
   assert.ok((await readFile(resolve(root, "audio", name))).equals(await readFile(resolve("public/audio", name))), `Missing audio: ${name}`);
 }
 for (const entry of await readdir(resolve(root, "_next/static"), { recursive: true })) {

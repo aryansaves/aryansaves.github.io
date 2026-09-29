@@ -2,7 +2,7 @@
 
 A Next.js, React, TypeScript, and CSS Modules portfolio exported statically for GitHub Pages.
 
-The site is one centered, compact notebook scrapbook portfolio. Projects, open-source work, education, practical details, and contact live on the same ivory sheet over a patterned collage desk. It uses the supplied paper, scrap, cat, and font assets, with no Work/About/Resume navigation. The initial launch intentionally does not publish a résumé PDF.
+The site is one centered, compact notebook scrapbook portfolio. Projects, open-source work, education, practical details, and contact live on the same ivory sheet over a static CSS patterned background. It uses the supplied paper texture, identity artwork, small cursors, and fonts, with no Work/About/Resume navigation. The initial launch intentionally does not publish a résumé PDF.
 
 ## Local development
 
@@ -25,7 +25,7 @@ npm run verify
 npm run preview
 ```
 
-The export verifier checks the one-page route, custom 404, HTML and CSS asset paths, interactive audio and SVGs, reduced-motion SVGs, unchanged identity image, and confirms that no résumé is accidentally published.
+The export verifier checks the one-page route, custom 404, HTML and CSS asset paths, remaining audio and SVGs, unchanged identity image, and confirms that no résumé is accidentally published.
 
 `preview` serves `out/` at port 3000 with real 404 responses and no SPA fallback. It is a local verification utility, not a production server. Set `PORT` to change its port.
 
@@ -52,8 +52,8 @@ Application facts are maintained in `src/lib/content.ts` and rendered by `src/co
 
 ESLint is pinned to the 9.x major because the React plugin bundled with the current Next.js lint configuration fails on ESLint 10. Update them together when that plugin supports the new API. Node.js 24 LTS is selected for CI; local verification in this workspace used Node.js 26.8.1.
 
-## Interactive desk
+## Static background
 
-Four torn-paper scraps start in randomized, separate margin slots on desktop. Dragging stays free; clicking changes their pattern. Hiding all four completely beneath the notebook triggers 48 overlapping rainbow-cat paper scraps and the supplied jackpot sound. The centre contains only “ALL SCRAPS LOST!” and an enlarged 8-bit cat. Clicking the cat (or activating it with the keyboard) reloads the page into a new arrangement. There is no automatic reload. Reduced-motion preferences use still cat artwork.
+On `codex/static-background`, the cream grid, rust checks, teal waves, and mustard stripes are purely decorative CSS layers. The draggable scraps and entire Easter egg have been removed, together with their unused artwork and jackpot audio. The notebook page remains, with the identity image in a plain CSS frame. Paper cutouts, tape overlays, and the 404 cat are removed. The animated cat with a ball is restored beside the notebook, hidden on narrow screens and for reduced motion. Only the font-change sounds remain.
 
-Only active web assets live in `public/`. Redundant source copies and earlier unused exports were removed before launch and remain recoverable from Git history. Local `.codex/` settings and generated build output are ignored.
+Validation and production publication were authorized on September 30. Lint, typecheck, root production build, export verification, and desktop/mobile browser checks passed; see [the validation record](docs/VERIFICATION.md) for details and limitations. The discarded minimal redesign is backed up at `/tmp/portfolio-minimal-design-20260930.tar.gz` in this workspace.

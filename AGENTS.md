@@ -2,37 +2,28 @@
 
 ## Project
 
-A personal portfolio presented as one centered, static, resume-like web page.
+A personal portfolio presented as one centered notebook page over a static CSS collage background. The September 30 direction on `codex/static-background` starts from main and supersedes the discarded dark minimal experiment.
 
-The selected visual identity is a notebook scrapbook résumé: an ivory ruled and textured paper sheet on a charcoal desk, supplied scrap-paper and cat assets, expressive non-cursive display typography, and a compact readable composition. The user's latest direction supersedes the earlier pink/green palette, monochrome editorial minimalism, and multipage structure.
+## Working principles
 
-## Working Principles
+- Read existing code and relevant project docs before changes.
+- Preserve the notebook page and confirmed identity, projects, open-source work, education, availability, and contact.
+- Keep the desk background purely static CSS: cream grid, rust checks, teal waves, and mustard stripes.
+- Do not restore floating/draggable scraps, stickers, the 404 cat image, paper cutouts, tape overlays, randomization, Easter egg, celebration overlay, or jackpot audio. The paper texture, small cursors, font-change sounds, and animated cat with a ball beside the notebook remain intentional active resources. Hide the playing cat on narrow screens and for reduced motion.
+- Preserve the supplied square identity artwork without alteration.
+- Do not publish a résumé without the user's approved final PDF.
+- Do not fabricate facts, project descriptions, employment, skills, or metrics.
+- Preserve native links, semantic headings, keyboard focus, contrast, responsive behavior, and reduced-motion support.
+- Prefer server components, native CSS, and the existing Next.js static export. Keep dependencies minimal.
+- Keep decorative backgrounds hidden from assistive technology and unable to intercept clicks.
+- Do not add separate content pages or a theme system.
+- Run lint, typecheck, production build, export verification, and relevant browser checks before publishing implementation changes. The user authorized validation, commit, merge, and production push on September 30.
+- Do not deploy, push, or start agents without authorization.
 
-- Read the existing code and relevant project docs before making changes.
-- Follow the user's current art direction; the existing monochrome implementation is a starting codebase, not the desired visual reference.
-- Center the paper sheet in the viewport. Keep body text legible and aligned within it; centering the sheet does not require centering every line.
-- Use one page for identity, projects, education, availability, and contact. Do not add Home/Work/About/Resume navigation or separate content pages.
-- Do not publish or link a résumé for the initial launch. Add one later only when the user provides and approves the final PDF.
-- Treat maximalism as a deliberate composition of type, colored paper, texture, and sticker clusters. Use the user's assets before adding unrelated decoration.
-- Preserve clear reading order, keyboard navigation, contrast, touch targets, and responsive behavior. Decorative assets must not cover essential copy or intercept clicks.
-- Keep motion modest. The user explicitly requested the supplied cat cursors, hover/click responses, font swaps, and small animated SVGs; support reduced motion and avoid entrance effects, parallax, or scroll reveals.
-- Keep one fixed visual identity; do not add a light/dark theme system.
-- Preserve the supplied personal identity image's recognizable square artwork. It may sit within a paper frame; do not replace it with an invented portrait or alter its artwork by default.
-- Use semantic HTML and sensible component boundaries. Keep dependencies minimal; prefer native CSS and the existing Next.js static-export setup.
-- Avoid generic SaaS layouts, glossy gradients, glowing blobs, glass panels, fake terminals, and repetitive rounded-card grids.
-- Do not fabricate facts or write generic personality filler to fill the sheet.
-- Avoid unrelated refactors. Run lint, typecheck, build, and appropriate export/browser checks after implementation changes.
+## Authority
 
-## Design and Content Authority
+- `docs/DESIGN.md`: current design and static background.
+- `docs/CONTENT.md`: factual copy and publication rules; historical presentation notes defer to the latest request.
+- `docs/IMPLEMENTATION.md`: structure and deferred verification.
 
-- [docs/DESIGN.md](docs/DESIGN.md): selected visual direction, composition, palette, typography, and supplied asset guidance.
-- [docs/CONTENT.md](docs/CONTENT.md): factual copy, links, confirmed information, and editorial TODOs.
-- [docs/IMPLEMENTATION.md](docs/IMPLEMENTATION.md): redesign handoff, workstream boundaries, integration sequence, and verification requirements.
-
-Preserve factual accuracy and usability while giving the page a distinctive handmade character. Do not reinstate the former restraint, monochrome, or multipage rules from historical implementation notes.
-
-## Scope and Collaboration
-
-Honor the task's requested scope. A request to save Markdown does not authorize changing application code, extracting assets into the site, installing dependencies, deploying, or starting agents.
-
-The implementation document includes a future Sol fan-out handoff. It records independently assignable workstreams; it does not start them. Shared layout and final art direction remain the integrating agent's responsibility when implementation is requested.
+See docs/VERIFICATION.md for the current validation record; older records apply only to the earlier design.

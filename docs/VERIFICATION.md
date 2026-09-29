@@ -1,4 +1,18 @@
+# Static background release verification — 2026-09-30
+
+- User authorized build, commit, merge, and production push.
+- ESLint, TypeScript, root production build, export verifier, and whitespace checks passed.
+- Build used `SITE_URL=https://aryansaves.me` and an empty base path. Next.js compiled in the sandbox but its TypeScript subprocess output required the authorized external execution path; that build passed.
+- Export checks cover local URLs, fonts/CSS, unchanged identity artwork, restored playing-cat SVG safety, retained font sounds, absence of removed Easter-egg/sticker assets, and absence of a résumé export.
+- Production preview reviewed at 1440px, 390px, and 320px: no horizontal overflow, visible image resources loaded, title and portrait separated on narrow phones, playing cat hidden on phone widths, and no console warnings/errors.
+- Selected-title hover checked in the browser: selected text stays readable in Papernotes, with no duplicated pseudo-element overlay.
+- Project, profile, contribution, and contact links carry `_blank` and `noopener noreferrer`; the skip link retains same-page behavior. The custom 404 renders and links back to the homepage in a new tab.
+- Audibility was not measured. Sounds are preloaded and attempted on first hover/focus/press; browser autoplay policy can still require user interaction.
+- The optional `/portfolio` build was not run because its execution request was declined. Production uses the verified root path.
+
 # Release verification — 2026-09-27
+
+Historical record for the earlier design; current validation is recorded above.
 
 Verified locally with Node.js 26.8.1; GitHub Actions uses the repository's Node.js 24 configuration.
 

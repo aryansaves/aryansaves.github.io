@@ -1,27 +1,26 @@
-# Prepared visual assets
+# Active resources
 
-The page uses artwork in `public/art/` and audio in `public/audio/`. The source filenames below record provenance; redundant originals were removed from the launch tree after the runtime exports were verified and remain recoverable from Git history.
+The site ships only assets referenced by its current notebook design.
 
-| Export | Source | Use |
-| --- | --- | --- |
-| `paper.webp` | `resources/marjan-blan-5Ft4NWTmeJE-unsplash.jpg` | Compressed photographic crease/fiber layer under the notebook rules |
-| `scrap-taped.png` | `resources/olga-thelavart-uP4jLndMWnY-unsplash-removebg-preview.png` | Portrait backing |
-| `scrap-rough.png` | `resources/olga-thelavart-RyrFRsVoe2Q-unsplash-removebg-preview.png` | Torn edges on draggable desk scraps and the Easter-egg paper collage |
-| `scrap-strips.png` | `resources/teuku-fadhil-t6w_PBhYuDI-unsplash-removebg-preview.png` | Cropped torn strip over the portrait |
-| `cursor-default-small.png` | `resources/cursor_hover.png` | Transparent 26×26 smiling cat cursor |
-| `cursor-pressed-small.png` | `resources/cursor_click.png` | Transparent 26×26 open-mouthed pressed cursor |
-| `cat-playing.svg` | `resources/svg/Cat playing animation.svg` | Small animated desk detail |
-| `cat-404.svg` | `resources/svg/404 error page with cat.svg` | Decorative custom 404 artwork |
-| `rainbow-cat-remix.svg` / `rainbow-cat-remix-still.svg` | `resources/svg/rainbow cat remix.svg` | Animated Easter-egg artwork and a derived SVG with animation elements removed for reduced motion |
-| `8-bit-cat.svg` / `8-bit-cat-still.svg` | `resources/svg/8-bit Cat.svg` | Clickable refresh cat and its reduced-motion still |
-| `casino-jackpot.mp3` | `resources/audio/floraphonic-playful-casino-slot-machine-jackpot-3-183921.mp3` | One-shot Easter-egg sound, copied without modification |
-| `font-title.mp3` | `resources/audio/tunetank.com_metallic-twang.wav` | Shortened, faded metallic hit for the main-name font swap |
-| `font-item.mp3` | `resources/audio/tunetank.com_high-clicks-typing.wav` | Shortened, faded click for project and open-source-work font swaps |
+| Resource | Use |
+| --- | --- |
+| `public/identity.jpg` | Unchanged supplied square identity artwork; original reference is `Pfp.jpg` |
+| `public/art/cat-playing.svg` | Restored supplied cat-with-ball animation beside the notebook; hidden below 1100px and for reduced motion |
+| `public/art/paper.webp` | Compressed photographic texture on the notebook sheet |
+| `public/art/cursor-default-small.png` | 26×26 default cursor on fine-pointer devices |
+| `public/art/cursor-pressed-small.png` | 26×26 pressed cursor on fine-pointer devices |
+| `public/audio/font-title.mp3` | Short metallic effect for title font changes |
+| `public/audio/font-item.mp3` | Short click for project/contribution font changes |
+| `src/assets/fonts/SuperAdorable.ttf` | Display typography |
+| `src/assets/fonts/Papernotes.woff2` | Accent and hover/focus typography |
+| Fontsource Manrope Latin variable WOFF2 | Factual text; license retained in `public/licenses/manrope.txt` |
 
-The source cat cursor PNGs had large opaque white canvases. The transparent cutouts were made through the built-in ImageGen background-extraction mode with prompts to preserve the original cat drawings while removing only the white background, then trimmed and downsampled to 48×48 and finally 26×26 with ImageMagick. The 26×26 versions are used so the cursor does not cover text. This is a derived cutout, not a byte-exact transformation; inspect the originals if exact line fidelity is important. The SVGs were checked for scripts and external references before use. `Hands typing on keyboard.svg` was left out because it is much larger and visually unnecessary.
+The desk background uses only static CSS gradients, borders, and rotations. No background asset downloads or desk interaction code are needed.
 
-`planet.png` and `flower.png` decorate the draggable scraps. Earlier unused checker artwork, larger cursors, source ZIPs, and font exports are no longer present in the launch tree. Decorative images have empty alt text; their enclosing scrap buttons provide the interaction.
+All Easter-egg cats, reduced-motion celebration variants, jackpot audio, floating-scrap assets, flower/planet stickers, rough paper, taped portrait backing, tape strips, and decorative 404 cat SVG have been removed, together with unused components, styles, and references. Earlier assets remain in Git history.
 
-The supplied audio files contain multiple successive effects. The active MP3 exports isolate one hit from each source, convert it to mono at 44.1 kHz and 96 kbps, and keep playback volume deliberately low. Browser autoplay policies mean hover sound begins after the visitor's first pointer or keyboard interaction; directly pressing a sound-enabled item also plays its effect.
+The retained cursor images are transparent derivatives of the supplied cat drawings. The retained short mono font sounds preload on mount and attempt playback on hover, focus, or press. Browser autoplay policy may require a visitor interaction before sound is allowed.
 
-The supplied assets do not include a complete license/provenance record. Confirm rights for the paper photograph, scrap PNGs, cursor art, and animated SVGs before public deployment.
+Asset provenance: paper texture derives from the supplied `marjan-blan-5Ft4NWTmeJE-unsplash.jpg`; cursors derive from `cursor_hover.png` and `cursor_click.png`; font-title and font-item audio derive from the supplied metallic-twang and typing WAVs. The supplied resources do not include a complete license record; existing font notes are in TYPOGRAPHY.md.
+
+The homepage cat-with-ball SVG was restored at the user’s request. It is unchanged from the original supplied export.

@@ -21,32 +21,30 @@ export function FontSoundEffects({ titleSrc, itemSrc }: FontSoundEffectsProps) {
 
     Object.values(sounds).forEach((sound) => {
       sound.preload = "auto";
+      sound.load();
     });
 
     const triggers = Array.from(
       document.querySelectorAll<HTMLElement>("[data-font-sound]"),
     );
     const lastPlayed = new WeakMap<HTMLElement, number>();
-    let soundUnlocked = navigator.userActivation?.hasBeenActive ?? false;
-
-    const unlockSound = () => {
-      soundUnlocked = true;
-    };
-
     const playSound = (trigger: HTMLElement) => {
-      if (!soundUnlocked && !navigator.userActivation?.hasBeenActive) return;
-
+      // Let the browser decide whether audio is permitted, including on first hover.
       const soundName = trigger.dataset.fontSound as SoundName | undefined;
       if (!soundName || !sounds[soundName]) return;
 
       const now = performance.now();
-      if (now - (lastPlayed.get(trigger) ?? 0) < 180) return;
+      const previousPlay = lastPlayed.get(trigger);
+      if (previousPlay !== undefined && now - previousPlay < 180) return;
       lastPlayed.set(trigger, now);
 
       const sound = sounds[soundName];
       sound.pause();
       sound.currentTime = 0;
-      void sound.play().catch(() => undefined);
+      void sound.play().catch(() => {
+        // A blocked hover must not debounce the first permitted click or keypress.
+        if (lastPlayed.get(trigger) === now) lastPlayed.delete(trigger);
+      });
     };
 
     const onPointerEnter = (event: PointerEvent) => {
@@ -56,27 +54,33 @@ export function FontSoundEffects({ titleSrc, itemSrc }: FontSoundEffectsProps) {
       playSound(event.currentTarget as HTMLElement);
     };
     const onPointerDown = (event: PointerEvent) => {
-      unlockSound();
       playSound(event.currentTarget as HTMLElement);
     };
 
-    document.addEventListener("pointerdown", unlockSound, { capture: true });
-    document.addEventListener("keydown", unlockSound, { capture: true });
+    const onClick = (event: MouseEvent) => {
+      playSound(event.currentTarget as HTMLElement);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Enter" || event.key === " ") {
+        playSound(event.currentTarget as HTMLElement);
+      }
+    };
 
     triggers.forEach((trigger) => {
       trigger.addEventListener("pointerenter", onPointerEnter);
       trigger.addEventListener("focus", onFocus);
       trigger.addEventListener("pointerdown", onPointerDown);
+      trigger.addEventListener("click", onClick);
+      trigger.addEventListener("keydown", onKeyDown);
     });
 
     return () => {
-      document.removeEventListener("pointerdown", unlockSound, { capture: true });
-      document.removeEventListener("keydown", unlockSound, { capture: true });
-
       triggers.forEach((trigger) => {
         trigger.removeEventListener("pointerenter", onPointerEnter);
         trigger.removeEventListener("focus", onFocus);
         trigger.removeEventListener("pointerdown", onPointerDown);
+        trigger.removeEventListener("click", onClick);
+        trigger.removeEventListener("keydown", onKeyDown);
       });
 
       Object.values(sounds).forEach((sound) => {
