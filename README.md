@@ -57,3 +57,4 @@ ESLint is pinned to the 9.x major because the React plugin bundled with the curr
 On `codex/static-background`, the cream grid, rust checks, teal waves, and mustard stripes are purely decorative CSS layers. The draggable scraps and entire Easter egg have been removed, together with their unused artwork and jackpot audio. The notebook page remains, with the identity image in a plain CSS frame. Paper cutouts, tape overlays, and the 404 cat are removed. The animated cat with a ball is restored beside the notebook, hidden on narrow screens and for reduced motion. Only the font-change sounds remain.
 
 Validation and production publication were authorized on September 30. Lint, typecheck, root production build, export verification, and desktop/mobile browser checks passed; see [the validation record](docs/VERIFICATION.md) for details and limitations. The discarded minimal redesign is backed up at `/tmp/portfolio-minimal-design-20260930.tar.gz` in this workspace.
+
