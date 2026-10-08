@@ -31,15 +31,15 @@ export default function Home() {
       <div className={styles.notebook}>
         <span className={`${styles.underPage} ${styles.underPageBack}`} aria-hidden="true" />
         <span className={`${styles.underPage} ${styles.underPageFront}`} aria-hidden="true" />
+          <div className={styles.binding} aria-hidden="true">
+            {Array.from({ length: 10 }, (_, index) => <span key={index} className={styles.bindingHole} />)}
+          </div>
         <article
           className={styles.sheet}
           aria-labelledby="page-title"
           style={{ "--paper-image": `url('${publicUrl("/art/paper.webp")}')` } as React.CSSProperties}
         >
           <div className={styles.paperTint} aria-hidden="true" />
-          <div className={styles.binding} aria-hidden="true">
-            {Array.from({ length: 10 }, (_, index) => <span key={index} className={styles.bindingHole} />)}
-          </div>
 
           <div className={styles.sheetContent}>
             <header>
@@ -74,8 +74,8 @@ export default function Home() {
               <ResumeSections />
             </div>
           </div>
-          <Image className={styles.playingCat} src={publicUrl("/art/cat-playing.svg")} alt="" width={1070} height={456} aria-hidden="true" unoptimized />
         </article>
+        <Image className={styles.playingCat} src={publicUrl("/art/cat-playing.svg")} alt="" width={1070} height={456} aria-hidden="true" unoptimized />
       </div>
       <DeskBackground />
     </main>

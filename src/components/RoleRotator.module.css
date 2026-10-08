@@ -2,7 +2,7 @@
   position: relative;
   display: block;
   width: min(280px, 100%);
-  height: 58px;
+  height: var(--role-height, 48px);
   overflow: hidden;
 }
 
@@ -30,7 +30,7 @@
   align-items: flex-start;
   flex: none;
   width: 100%;
-  height: 58px;
+  height: var(--role-height, 48px);
 }
 
 .paper {
@@ -38,13 +38,13 @@
   display: inline-flex;
   align-items: center;
   max-width: 100%;
-  padding: 7px 16px 10px 12px;
+  padding: 5px 14px 8px 10px;
   border-left: 4px solid var(--accent-red);
   background: #f2eedf;
   box-shadow: 3px 4px 0 rgba(40, 46, 49, .19);
   color: var(--ink);
   font-family: var(--accent);
-  font-size: 25px;
+  font-size: 23px;
   font-weight: 400;
   line-height: 1.05;
   text-align: left;
@@ -69,13 +69,13 @@
 
 @keyframes swipe {
   0%, 28% { transform: translateY(0); }
-  33%, 61% { transform: translateY(-58px); }
-  66%, 94% { transform: translateY(-116px); }
-  100% { transform: translateY(-174px); }
+  33%, 61% { transform: translateY(calc(-1 * var(--role-height, 48px))); }
+  66%, 94% { transform: translateY(calc(-2 * var(--role-height, 48px))); }
+  100% { transform: translateY(calc(-3 * var(--role-height, 48px))); }
 }
 
 @media (max-width: 480px) {
-  .paper { padding: 7px 10px 9px; font-size: 20px; }
+  .paper { padding: 4px 8px 7px; font-size: 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -85,4 +85,8 @@
 
 @media (max-width: 360px) {
   .paper { padding-inline: 8px; font-size: 18px; }
+}
+
+@media (min-width: 701px) and (max-height: 600px) {
+  .paper { font-size: 18px; padding: 4px 8px 7px; }
 }

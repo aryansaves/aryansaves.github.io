@@ -1,3 +1,10 @@
+# Viewport sizing verification — 2026-10-08
+
+- Lint, typecheck, production build (`SITE_URL=https://aryansaves.me`), export verification, and whitespace checks passed.
+- Browser measured no document overflow at 1440×900, 1366×768, 768×1024, 390×844, 320×568, and 844×390; identity and other image resources loaded.
+- The notebook fits without internal scrolling at the tested desktop, tablet, 390px phone, and final 844×390 landscape dimensions. At 320×568 it scrolls internally to preserve readable content. Extremely small viewports and enlarged text use this same fallback.
+- Final landscape layout reviewed visually; browser console returned no warnings/errors. No deployment or push performed for this update.
+
 # Static background release verification — 2026-09-30
 
 - User authorized build, commit, merge, and production push.

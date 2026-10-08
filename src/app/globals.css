@@ -18,7 +18,7 @@
   --sans: "Manrope Variable", Arial, sans-serif;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: auto; }
+html { scroll-behavior: auto; overflow: hidden; }
 body { --display: var(--font-display), Arial, sans-serif; --accent: var(--font-accent), Arial, sans-serif; margin: 0; background: var(--surround); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
 a { color: inherit; }
 a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
