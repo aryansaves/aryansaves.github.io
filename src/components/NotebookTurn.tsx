@@ -46,9 +46,10 @@ function flapClip(width: number, height: number, fold: Fold) {
 }
 
 /** One live portfolio face; only the blank paper reverse is carried by the fold. */
-export function NotebookTurn({ children, decoration, className, paperImage }: {
+export function NotebookTurn({ children, decoration, secondPage, className, paperImage }: {
   children: ReactNode;
   decoration: ReactNode;
+  secondPage: ReactNode;
   className: string;
   paperImage: string;
 }) {
@@ -321,8 +322,9 @@ export function NotebookTurn({ children, decoration, className, paperImage }: {
   return (
     <div ref={root} className={`${className} ${styles.book}`} data-turned={turned} style={{ "--paper-image": `url('${paperImage}')` } as CSSProperties}>
       {decoration}
-      <div className={styles.blank} aria-hidden="true">
-        <span className={styles.pageNumber}>02</span>
+      <div id="notebook-second-page" className={styles.blank} aria-hidden={!turned || busy} inert={!turned || busy}>
+        {secondPage}
+        <span className={styles.pageNumber} aria-hidden="true">02</span>
       </div>
       <div ref={face} className={styles.face} aria-hidden={turned || undefined} inert={turned || busy}>
         {children}
@@ -334,8 +336,8 @@ export function NotebookTurn({ children, decoration, className, paperImage }: {
         ref={control}
         className={styles.turnControl}
         type="button"
-        aria-label={turned ? "Return to portfolio page" : "Turn page to blank ruled leaf"}
-        aria-controls="portfolio-content"
+        aria-label={turned ? "Return to portfolio page" : "Turn page to tech stack"}
+        aria-controls="portfolio-content notebook-second-page"
         aria-disabled={busy}
         onClick={event => activate(event.detail > 0)}
         onPointerEnter={peek}
@@ -359,7 +361,7 @@ export function NotebookTurn({ children, decoration, className, paperImage }: {
         <span>{turned ? "return" : "turn page"}</span>
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><path d="M5 17C5 10 10 6 18 6M12 3l6 3-3 6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </button>
-      <span className={styles.announcement} role="status">{turned ? "Blank ruled leaf. Return to see the portfolio." : "Portfolio page, 1 of 2."}</span>
+      <span className={styles.announcement} role="status">{turned ? "Tech stack page, 2 of 2. Return to see the portfolio." : "Portfolio page, 1 of 2."}</span>
     </div>
   );
 }
