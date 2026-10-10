@@ -41,3 +41,9 @@ The export verifier covers HTML/CSS references, remaining artwork/audio, restore
 The workflow in `.github/workflows/pages.yml` builds all branches/PRs and deploys only the default branch. Set GitHub Pages to GitHub Actions after connecting the intended repository. The workflow derives the base path and canonical URL; use `PAGES_CUSTOM_DOMAIN` only for a configured custom domain.
 
 The static-background work originated on `codex/static-background` from main; the discarded `codex/minimal-design` branch was deleted. The user authorized merging into main and pushing through the existing GitHub Pages workflow. Existing font and asset provenance questions remain documented in [TYPOGRAPHY.md](TYPOGRAPHY.md) and [ASSETS.md](ASSETS.md).
+
+## First-view loading — October 10, 2026
+
+`NotebookEntrance` is a server component wrapping the existing notebook. `ReactDOM.preload` emits an early high-priority paper-texture hint, and the portrait uses the current Next Image `preload` prop. Fonts retain their native Next font preloads. The frame stays visible from first paint; `data-entry` markers on the actual header, identity, introduction, sections, and turn control drive a short CSS sequence with responsive row timing. No effect, loading state, image decoding gate, loader markup, timer, or extra client component is needed.
+
+Each component fades in and rises 10px over 360ms after its assigned delay; the final control settles by 1.08 seconds on desktop and 1.18 seconds on taller phones. Backwards fill reserves the existing layout during the delay without retaining transforms after completion. The sequence completes independently of hydration and is not replayed by page turning. Keyboard focus cancels the sequence to expose its destination, and reduced-motion CSS disables it. Semantic content and native links remain server-rendered. No route or dependency is added.

@@ -1,0 +1,34 @@
+.shell { position: relative; z-index: 1; width: min(100%, 820px); }
+
+/* The real paper, border, binding, and page stack are visible from first paint.
+   Only the printed components enter, in their existing layout footprint. */
+.shell :global([data-entry]) {
+  animation: component-enter 360ms cubic-bezier(.2, .7, .2, 1) var(--entry-delay) backwards;
+}
+.shell :global([data-entry="contact"]) { --entry-delay: 80ms; }
+.shell :global([data-entry="identity"]) { --entry-delay: 180ms; }
+.shell :global([data-entry="intro"]) { --entry-delay: 300ms; }
+.shell :global([data-entry="projects"]),
+.shell :global([data-entry="education"]) { --entry-delay: 420ms; }
+.shell :global([data-entry="open-source"]),
+.shell :global([data-entry="details"]) { --entry-delay: 560ms; }
+.shell :global([data-entry="control"]) { --entry-delay: 720ms; }
+
+@keyframes component-enter {
+  from { opacity: 0; transform: translateY(10px); pointer-events: none; }
+  to { opacity: 1; transform: none; pointer-events: auto; }
+}
+
+/* On taller phones, Education and Details sit below Open Source Work. */
+@media (max-width: 480px) and (min-height: 701px) {
+  .shell :global([data-entry="education"]),
+  .shell :global([data-entry="details"]) { --entry-delay: 680ms; }
+  .shell :global([data-entry="control"]) { --entry-delay: 820ms; }
+}
+
+/* A keyboard destination is immediately visible, including the skip target. */
+.shell:focus-within :global([data-entry]) { animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .shell :global([data-entry]) { animation: none; }
+}

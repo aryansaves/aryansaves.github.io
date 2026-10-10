@@ -1,3 +1,12 @@
+# Frame-first component reveal — 2026-10-10
+
+- The notebook frame stays visible from first paint; actual header, identity, introduction, sections, and turn control reveal from top to bottom. Removed loader markup, asset-readiness gating, loading state, and the client entrance wrapper. Native CSS finishes in 1.08 seconds on desktop and 1.18 seconds on taller phones.
+- Lint, typecheck, production build (`SITE_URL=https://aryansaves.me`), export verification (55 internal URLs), and whitespace checks passed. No new dependencies or routes; identity artwork and the approved résumé remain unchanged.
+- Browser reload captured the initial paper, binding, ruled lines, border, and stack at full opacity while all entry components began at zero opacity. Computed delays matched the intended sequence; the settled components all reached full opacity with no retained transforms or Loading text.
+- Desktop and 390px phone views were reviewed visually. Browser checks at 1280×720, 390×844, and 320×568 found no horizontal document overflow. Taller-phone Education/Details timing follows Open Source Work. Keyboard turn/return passed, and the entrance does not replay on leaf changes. Console returned no warnings or errors.
+- Keyboard-focus cancellation and reduced-motion CSS were reviewed in source. The sequence has no JavaScript dependency; disabled JavaScript and reduced motion were not separately emulated in the browser.
+- The user authorized committing, merging, and pushing this implementation on October 10. Hosting deployment status is separate from the Git push.
+
 # Merge and push authorization — 2026-10-10
 
 The user authorized merging and pushing the completed notebook refinements. The final implementation includes the résumé beside Contact, the tech-stack leaf with local logos, PostgreSQL and Express, removal of Zod and the extra systems/protocol copy, and the bottom-right return control. Final lint, typecheck, production build, export verification, and responsive browser checks passed as recorded below. The performance/security source review remains in AUDIT-2026-10-10.md; no dependency or audit fixes are included in this release. The original approved résumé PDF and identity artwork are unchanged.
