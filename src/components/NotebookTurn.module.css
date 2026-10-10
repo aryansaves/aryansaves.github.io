@@ -124,7 +124,7 @@
 .turnControl:focus-visible { outline: 2px dashed var(--ink); outline-offset: -5px; }
 .turnControl[aria-disabled="true"] { cursor: grabbing; }
 .book[data-folding="true"] .turnControl > * { opacity: .38; }
-.book[data-turned="true"] .turnControl { right: auto; left: 12px; flex-direction: row-reverse; }
+.book[data-turned="true"] .turnControl { flex-direction: row-reverse; justify-content: flex-start; }
 .book[data-turned="true"] .turnControl svg { transform: scaleX(-1); }
 
 .pageNumber {

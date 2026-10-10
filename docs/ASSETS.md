@@ -25,3 +25,9 @@ The retained cursor images are transparent derivatives of the supplied cat drawi
 Asset provenance: paper texture derives from the supplied `marjan-blan-5Ft4NWTmeJE-unsplash.jpg`; cursors derive from `cursor_hover.png` and `cursor_click.png`; font-title and font-item audio derive from the supplied metallic-twang and typing WAVs. The supplied resources do not include a complete license record; existing font notes are in TYPOGRAPHY.md.
 
 The homepage cat-with-ball SVG was restored at the user’s request. It is unchanged from the original supplied export.
+
+## Tech-stack logos — October 10, 2026
+
+`public/art/tech/` contains 19 local logos paired with visible technology names from the approved résumé and the user’s confirmed additions, PostgreSQL and Express. All logos come from [Devicon](https://github.com/devicons/devicon), pinned at commit `7330accdbc47e2dc0c19789a48533c4a3c50fe58`. The MIT notice is retained in `public/licenses/devicon.txt`. Source URLs, original hashes, and output hashes are recorded in `docs/TECH-ICON-SOURCES.json`. Brand marks belong to their respective owners.
+
+Linux is a transparent 132×132 WebP derivative rendered from its source SVG; the remaining 18 logos stay SVG. Together the logo files total 70,706 bytes. The removed Zod logo and its unused license notice are no longer shipped. SQL uses an original generic database symbol, and Cloudflare Pages uses the Cloudflare provider logo. The logos require no icon package or external visitor request and are decorative for assistive technology; visible labels carry their meaning. The export verifier checks the published hashes and rejects active/external SVG content.

@@ -1,0 +1,122 @@
+{
+  "deviconRevision": "7330accdbc47e2dc0c19789a48533c4a3c50fe58",
+  "icons": [
+    {
+      "file": "go.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/go/go-original.svg",
+      "sha256": "2d4558b96d3ec71d0d922a62668cb2ea5a5d83ed7d4caf6b0479b3266f795a2f",
+      "bytes": 8965
+    },
+    {
+      "file": "typescript.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/typescript/typescript-original.svg",
+      "sha256": "c9191199f4049920c2fc19035b8a6664f37f4689fcd9e8434e786097e78863f0",
+      "bytes": 943
+    },
+    {
+      "file": "javascript.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/javascript/javascript-original.svg",
+      "sha256": "0656ff65fc8eeacda5c78d7f9ffe91ec1eb919db64f56e0b7dcd460af4bbd36c",
+      "bytes": 1144
+    },
+    {
+      "file": "nodejs.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/nodejs/nodejs-original.svg",
+      "sha256": "3218687c5ea24a4d4c0a33dc5c287da38c33a72dcfe9382469d7ce4e0bf661fb",
+      "bytes": 1806
+    },
+    {
+      "file": "bun.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/bun/bun-original.svg",
+      "sha256": "54664655dec93da013d1fe8f8e1bf3311054708a17b445fdde319e0d7011f93c",
+      "bytes": 5552
+    },
+    {
+      "file": "fastify.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/fastify/fastify-original.svg",
+      "sha256": "049ca213e57a095e101a339603347bb783e466fbb6b45febeb129677eb108604",
+      "bytes": 8601
+    },
+    {
+      "file": "mongodb.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/mongodb/mongodb-original.svg",
+      "sha256": "d9f2bf7041264f4747e9969fb82ede0199c0ac97dfa8632aa0687d702ec05f7b",
+      "bytes": 5611
+    },
+    {
+      "file": "mongoose.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/mongoose/mongoose-original.svg",
+      "sha256": "ff44cc80f119b5c4ae23bb4afeb4a1bca3c343565ad6e7cbf8cb3ea7e47db3d0",
+      "bytes": 5371
+    },
+    {
+      "file": "redis.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/redis/redis-original.svg",
+      "sha256": "4707378b190878f36f7e6e1c01fa3ee7e7884c76101809d191dddd943a2e6bdb",
+      "bytes": 1728
+    },
+    {
+      "file": "react.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/react/react-original.svg",
+      "sha256": "5825b649c8c04dec13ecf01d0182401bd0ec71789d2fa06224866d882cd1515f",
+      "bytes": 2387
+    },
+    {
+      "file": "nextjs.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/nextjs/nextjs-original.svg",
+      "sha256": "d9435c4ede7133b376c0173a80226bb3856729366707cd96e9a66e39448d0288",
+      "bytes": 749
+    },
+    {
+      "file": "d3js.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/d3js/d3js-original.svg",
+      "sha256": "cdcd60f2cb0c8766fe9bb8aa02a3432744219ae862c6ef08f4b3ce3ccf17f670",
+      "bytes": 3331
+    },
+    {
+      "file": "docker.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/docker/docker-original.svg",
+      "sha256": "3fd830ea69431ed7a0b8d068cd5b34ad3f00a1a78195d50f13ff56713f2462e1",
+      "bytes": 4452
+    },
+    {
+      "file": "git.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/git/git-original.svg",
+      "sha256": "717a57ea97bf7e86de721dab3e68afac66332a10676d5c9abce4ae6a5a9c9983",
+      "bytes": 778
+    },
+    {
+      "file": "linux.webp",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/linux/linux-original.svg",
+      "sha256": "9fb8da6458a1c72efb4c8e33b22793b79195c544fa9a0e242cf5db839fb11605",
+      "bytes": 4278,
+      "sourceSha256": "cf50ae4a263c6142963fad3561f7cb0311d0d41cc6189eadfb34f81a8a36acb0",
+      "sourceBytes": 193922,
+      "derivative": "132 \u00d7 132 transparent WebP, rendered from the source SVG; quality 90."
+    },
+    {
+      "file": "amazonwebservices.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+      "sha256": "5b4d8371d79a5c0d3a27ea4e929f772e68d47f7d267496bf9211d5f60fcf8084",
+      "bytes": 3743
+    },
+    {
+      "file": "cloudflare.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/cloudflare/cloudflare-original.svg",
+      "sha256": "6bb87edf9d3759ab11efb064a4cbe25271d4761539aa4928e68bcaf795839c63",
+      "bytes": 1175
+    },
+    {
+      "file": "express.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/express/express-original.svg",
+      "sha256": "27ec7e3d21d59102c046a96277877abf78aa9d7ad244277345d9c395486d42d4",
+      "bytes": 914
+    },
+    {
+      "file": "postgresql.svg",
+      "source": "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/postgresql/postgresql-original.svg",
+      "sha256": "f220a436258ed014c512ba4f9c0de6b9e5c2c4b55331a0a29f8c7a1a12c36443",
+      "bytes": 9178
+    }
+  ]
+}

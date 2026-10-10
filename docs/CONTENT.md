@@ -37,7 +37,7 @@ During implementation, copy the asset into the site's public assets and use its 
 - X: https://x.com/kareedesuka
 - Contact label: Contact; use a direct email link in the sheet header.
 - Custom domain: not provided. Start with the GitHub Pages address.
-- Resume: user supplied and approved the PDF download on October 10, 2026. Serve the unchanged file at `/resume.pdf`, with a bottom-left Resume button. Future replacements require user approval.
+- Resume: user supplied and approved the PDF download on October 10, 2026. Serve the unchanged file at `/resume.pdf`, with a Resume button beside Contact. Future replacements require user approval.
 
 ## Education
 
@@ -66,6 +66,21 @@ The portfolio is one centered, compact static resume sheet. There is no Home/Wor
 - Header: email and maintained social links.
 
 Until descriptions are verified, project entries may display supplied names and destination links only. Do not display missing-description notices, guessed stacks, years, outcomes, empty experience entries, or editorial TODOs. Keep long project narratives out of this compact version rather than creating additional pages.
+
+## Confirmed Tech Stack — October 10, 2026
+
+The user requested the second notebook leaf display the tech stack from the approved `public/resume.pdf`. Its Technical Skills section confirms:
+
+- Languages: Go, TypeScript, JavaScript, SQL.
+- Backend: Node.js, Bun, Fastify, REST APIs, OAuth 2.0, JWT, Zod.
+- Databases: MongoDB, Mongoose, Redis.
+- Frontend: React, Next.js, D3.js.
+- Systems and testing: TCP/IP, concurrency, load testing, benchmarking, regression testing.
+- Tools and cloud: Docker, Git, Linux, AWS, Cloudflare Pages.
+
+The user subsequently confirmed PostgreSQL for Databases and Express for Backend on October 10, 2026, and requested removing Zod from the displayed stack. These two additions come from direct user confirmation rather than the approved PDF.
+
+Display these as grouped technologies with visible names and recognizable local logos. At the user’s latest request, omit REST APIs, OAuth 2.0, JWT, and the entire Systems and testing section from the second leaf; they remain confirmed résumé facts, but are not displayed on the site. Do not add proficiency ratings, years, or unverified technologies. This confirmation supersedes the candidate-only status of matching names in historical notes below; it does not authorize expanding the first-page projects or copy. The second leaf remains part of the same notebook and URL.
 
 ## Earlier Focus Notes — Confirm Before Publishing
 

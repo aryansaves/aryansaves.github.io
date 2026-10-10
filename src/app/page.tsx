@@ -4,6 +4,7 @@ import { ResumeSections } from "@/components/ResumeSections";
 import { DeskBackground } from "@/components/DeskBackground";
 import { RoleRotator } from "@/components/RoleRotator";
 import { NotebookTurn } from "@/components/NotebookTurn";
+import { TechStackPage } from "@/components/TechStackPage";
 import { identity, profiles } from "@/lib/content";
 import { pageMetadata, publicUrl } from "@/lib/urls";
 import styles from "./page.module.css";
@@ -32,6 +33,7 @@ export default function Home() {
       <NotebookTurn
         className={styles.notebook}
         paperImage={publicUrl("/art/paper.webp")}
+        secondPage={<TechStackPage />}
         decoration={
           <>
             <span className={`${styles.underPage} ${styles.underPageBack}`} aria-hidden="true" />
@@ -53,7 +55,16 @@ export default function Home() {
           <div className={styles.sheetContent}>
             <header>
               <div className={styles.contactHeader}>
-                <a className={styles.contactLink} href={`mailto:${identity.email}`} target="_blank" rel="noopener noreferrer" aria-label={`Email ${identity.email}`}>Contact ↗</a>
+                <div className={styles.contactActions}>
+                  <a className={styles.contactLink} href={`mailto:${identity.email}`} target="_blank" rel="noopener noreferrer" aria-label={`Email ${identity.email}`}>Contact ↗</a>
+                  <a
+                    className={styles.resumeDownload}
+                    href={publicUrl("/resume.pdf")}
+                    download="Aryan-Kumar-Srivastava-Resume.pdf"
+                  >
+                    Resume ↓
+                  </a>
+                </div>
                 <ul aria-label="Social profiles">
                   {profiles.map((profile) => (
                     <li key={profile.label}><a href={profile.href} target="_blank" rel="noopener noreferrer">{profile.label} ↗</a></li>
@@ -82,13 +93,6 @@ export default function Home() {
             <div id="portfolio-content" className={styles.resumeContent} tabIndex={-1}>
               <ResumeSections />
             </div>
-            <a
-              className={styles.resumeDownload}
-              href={publicUrl("/resume.pdf")}
-              download="Aryan-Kumar-Srivastava-Resume.pdf"
-            >
-              Resume ↓
-            </a>
           </div>
         </article>
       </NotebookTurn>
