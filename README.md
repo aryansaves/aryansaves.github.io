@@ -25,7 +25,7 @@ npm run verify
 npm run preview
 ```
 
-The export verifier checks the one-page route, custom 404, HTML and CSS asset paths, remaining audio and SVGs, unchanged identity image, and confirms that no résumé is accidentally published.
+The export verifier checks the one-page route, custom 404, HTML and CSS asset paths, remaining audio and SVGs, unchanged identity image, and confirms that the approved résumé download exports unchanged.
 
 `preview` serves `out/` at port 3000 with real 404 responses and no SPA fallback. It is a local verification utility, not a production server. Set `PORT` to change its port.
 

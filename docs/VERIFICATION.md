@@ -1,3 +1,41 @@
+# Approved résumé download — 2026-10-10
+
+- User supplied and approved `document.pdf` as the résumé download. It is copied unchanged to `public/resume.pdf`; no commit, push, or deployment performed.
+- Added a native Resume download anchor in the bottom-left paper margin, using the existing button treatment and cat cursor. The export verifier now requires the link and checks the exported PDF against the approved public asset.
+- Lint, typecheck, production build, export verification, and whitespace checks passed. Input, public copy, export, and browser-downloaded file matched byte for byte.
+- Native browser download completed with the suggested filename `Aryan-Kumar-Srivastava-Resume.pdf`. Footer bounds checked at 1440×900, 390×844, 320×568, and 568×320; no overlap with sections or page-turn control and no paper overflow.
+
+# Introduction spacing and cursor fixes — 2026-10-10
+
+- Local only: no commit, push, or deployment.
+- Two user-requested Luna subagents reviewed cursor/page-turn interactions and responsive layout. Their source findings were the page-turn cursor override and omitted 481–600px short-landscape layout. Both were corrected and checked in the browser.
+- Replaced distributed vertical whitespace with explicit gaps; the intro-to-sections gap measures 22px at 1440×900 and 16px at 1366×768. Roomy desktop layouts use larger introduction and factual text.
+- Browser checks at 1440×900, 1366×768, 568×320, 600×400, 320×568, and 390×844 found paper scroll height equal to its visible height, with sections inside the page. Short landscape and desktop layouts reviewed visually.
+- Browser computed style confirms the turn button uses the cat PNG cursor both at rest and during an animated turn. Fine-pointer media rules include hybrid input devices; touch retains native cursor behavior. Default/pressed artwork remains 26×26.
+- Keyboard turn and return reached both leaf states. Lint, typecheck, production build, static export verification, and whitespace checks passed.
+
+# Fixed notebook composition — 2026-10-10
+
+- Supersedes the scrolling layout below. Local changes only; no commit, push, or deployment.
+- The notebook fills the available viewport height with a cap and visible desk margins. No outer or internal scrolling is enabled.
+- Lint, typecheck, production build, export verification, and whitespace checks passed.
+- Final browser measurements at 1440×900, 1366×768, 600×800, 390×844, 320×568, and 667×375 found document dimensions equal to the viewport and paper scroll height equal to its visible height. Every section ends above the paper footer. Earlier checks also covered 768×1024, 375×667, and 844×390.
+- Visually reviewed compact phone and landscape arrangements. Existing page-turn implementation and content are preserved.
+
+# Taller notebook layout — 2026-10-10
+
+- Local layout update only; no commit, push, or deployment.
+- The paper now uses a 4:5 minimum portrait proportion at up to 820px, with larger factual text and natural document scrolling. The static CSS desk stays fixed behind it.
+- Lint, typecheck, production build (`SITE_URL=https://aryansaves.me`), and export verification passed, including the existing local page-turn work.
+- Browser review covered 1440×900, 390×844, 320×568, and 844×390. Document and paper had no horizontal overflow or internal vertical scrolling; desktop image resources loaded. Phone education and details stack for readability.
+- Keyboard activation reached the blank ruled leaf and exposed the return control. This check does not replace the existing page-turn visual review.
+
+# Page-turn branch — 2026-10-08: validation deferred
+
+The page-turn effect on `codex/page-turn-animation` is under visual refinement. The user requested no tests or commits until the effect is perfected. Local preview was used for visual drafting and source review; no lint, typecheck, production build, export verification, or test suite has been run for the page-turn changes. No commit, push, merge, or deployment has been made. The record below applies to the preceding viewport-sizing implementation.
+
+The subsequent overlap review used two Luna sub-agents for independent source inspection and the local preview for forward/return folds. The lifted paper now covers fixed binding where their shapes overlap; exposed hardware remains visible. Page numbers are inside their own clipped leaf contexts, the control remains below the moving paper without losing its input layer, and a 0.6px crease overlap covers antialiasing gaps. These are visual refinement observations, not formal validation. Tests and commits remain deferred.
+
 # Viewport sizing verification — 2026-10-08
 
 - Lint, typecheck, production build (`SITE_URL=https://aryansaves.me`), export verification, and whitespace checks passed.

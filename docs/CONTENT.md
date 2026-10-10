@@ -37,7 +37,7 @@ During implementation, copy the asset into the site's public assets and use its 
 - X: https://x.com/kareedesuka
 - Contact label: Contact; use a direct email link in the sheet header.
 - Custom domain: not provided. Start with the GitHub Pages address.
-- Resume: intentionally omitted from the initial launch. Add a PDF and link only after the user provides and approves the final document.
+- Resume: user supplied and approved the PDF download on October 10, 2026. Serve the unchanged file at `/resume.pdf`, with a bottom-left Resume button. Future replacements require user approval.
 
 ## Education
 

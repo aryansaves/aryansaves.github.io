@@ -3,6 +3,7 @@ import { FontSoundEffects } from "@/components/FontSoundEffects";
 import { ResumeSections } from "@/components/ResumeSections";
 import { DeskBackground } from "@/components/DeskBackground";
 import { RoleRotator } from "@/components/RoleRotator";
+import { NotebookTurn } from "@/components/NotebookTurn";
 import { identity, profiles } from "@/lib/content";
 import { pageMetadata, publicUrl } from "@/lib/urls";
 import styles from "./page.module.css";
@@ -28,12 +29,20 @@ export default function Home() {
         itemSrc={publicUrl("/audio/font-item.mp3")}
       />
       <a className="skip-link" href="#portfolio-content">Skip to portfolio content</a>
-      <div className={styles.notebook}>
-        <span className={`${styles.underPage} ${styles.underPageBack}`} aria-hidden="true" />
-        <span className={`${styles.underPage} ${styles.underPageFront}`} aria-hidden="true" />
-          <div className={styles.binding} aria-hidden="true">
-            {Array.from({ length: 10 }, (_, index) => <span key={index} className={styles.bindingHole} />)}
-          </div>
+      <NotebookTurn
+        className={styles.notebook}
+        paperImage={publicUrl("/art/paper.webp")}
+        decoration={
+          <>
+            <span className={`${styles.underPage} ${styles.underPageBack}`} aria-hidden="true" />
+            <span className={`${styles.underPage} ${styles.underPageFront}`} aria-hidden="true" />
+            <div className={styles.binding} aria-hidden="true">
+              {Array.from({ length: 10 }, (_, index) => <span key={index} className={styles.bindingHole} />)}
+            </div>
+            <Image className={styles.playingCat} src={publicUrl("/art/cat-playing.svg")} alt="" width={1070} height={456} aria-hidden="true" unoptimized />
+          </>
+        }
+      >
         <article
           className={styles.sheet}
           aria-labelledby="page-title"
@@ -73,10 +82,16 @@ export default function Home() {
             <div id="portfolio-content" className={styles.resumeContent} tabIndex={-1}>
               <ResumeSections />
             </div>
+            <a
+              className={styles.resumeDownload}
+              href={publicUrl("/resume.pdf")}
+              download="Aryan-Kumar-Srivastava-Resume.pdf"
+            >
+              Resume ↓
+            </a>
           </div>
         </article>
-        <Image className={styles.playingCat} src={publicUrl("/art/cat-playing.svg")} alt="" width={1070} height={456} aria-hidden="true" unoptimized />
-      </div>
+      </NotebookTurn>
       <DeskBackground />
     </main>
   );

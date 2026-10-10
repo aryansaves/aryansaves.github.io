@@ -14,6 +14,7 @@ The site ships only assets referenced by its current notebook design.
 | `src/assets/fonts/SuperAdorable.ttf` | Display typography |
 | `src/assets/fonts/Papernotes.woff2` | Accent and hover/focus typography |
 | Fontsource Manrope Latin variable WOFF2 | Factual text; license retained in `public/licenses/manrope.txt` |
+| `public/licenses/page-turn.txt` | MIT notice for the adapted Grabfold geometry and fold shading; source provenance retained in `src/lib/page-turn/README.md` |
 
 The desk background uses only static CSS gradients, borders, and rotations. No background asset downloads or desk interaction code are needed.
 
