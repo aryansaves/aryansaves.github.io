@@ -335,6 +335,7 @@ export function NotebookTurn({ children, decoration, secondPage, className, pape
       <button
         ref={control}
         className={styles.turnControl}
+        data-entry="control"
         type="button"
         aria-label={turned ? "Return to portfolio page" : "Turn page to tech stack"}
         aria-controls="portfolio-content notebook-second-page"

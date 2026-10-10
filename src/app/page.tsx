@@ -5,6 +5,7 @@ import { DeskBackground } from "@/components/DeskBackground";
 import { RoleRotator } from "@/components/RoleRotator";
 import { NotebookTurn } from "@/components/NotebookTurn";
 import { TechStackPage } from "@/components/TechStackPage";
+import { NotebookEntrance } from "@/components/NotebookEntrance";
 import { identity, profiles } from "@/lib/content";
 import { pageMetadata, publicUrl } from "@/lib/urls";
 import styles from "./page.module.css";
@@ -30,72 +31,74 @@ export default function Home() {
         itemSrc={publicUrl("/audio/font-item.mp3")}
       />
       <a className="skip-link" href="#portfolio-content">Skip to portfolio content</a>
-      <NotebookTurn
-        className={styles.notebook}
-        paperImage={publicUrl("/art/paper.webp")}
-        secondPage={<TechStackPage />}
-        decoration={
-          <>
-            <span className={`${styles.underPage} ${styles.underPageBack}`} aria-hidden="true" />
-            <span className={`${styles.underPage} ${styles.underPageFront}`} aria-hidden="true" />
-            <div className={styles.binding} aria-hidden="true">
-              {Array.from({ length: 10 }, (_, index) => <span key={index} className={styles.bindingHole} />)}
-            </div>
-            <Image className={styles.playingCat} src={publicUrl("/art/cat-playing.svg")} alt="" width={1070} height={456} aria-hidden="true" unoptimized />
-          </>
-        }
-      >
-        <article
-          className={styles.sheet}
-          aria-labelledby="page-title"
-          style={{ "--paper-image": `url('${publicUrl("/art/paper.webp")}')` } as React.CSSProperties}
+      <NotebookEntrance paperSrc={publicUrl("/art/paper.webp")}>
+        <NotebookTurn
+          className={styles.notebook}
+          paperImage={publicUrl("/art/paper.webp")}
+          secondPage={<TechStackPage />}
+          decoration={
+            <>
+              <span className={`${styles.underPage} ${styles.underPageBack}`} aria-hidden="true" />
+              <span className={`${styles.underPage} ${styles.underPageFront}`} aria-hidden="true" />
+              <div className={styles.binding} aria-hidden="true">
+                {Array.from({ length: 10 }, (_, index) => <span key={index} className={styles.bindingHole} />)}
+              </div>
+              <Image className={styles.playingCat} src={publicUrl("/art/cat-playing.svg")} alt="" width={1070} height={456} aria-hidden="true" unoptimized />
+            </>
+          }
         >
-          <div className={styles.paperTint} aria-hidden="true" />
+          <article
+            className={styles.sheet}
+            aria-labelledby="page-title"
+            style={{ "--paper-image": `url('${publicUrl("/art/paper.webp")}')` } as React.CSSProperties}
+          >
+            <div className={styles.paperTint} aria-hidden="true" />
 
-          <div className={styles.sheetContent}>
-            <header>
-              <div className={styles.contactHeader}>
-                <div className={styles.contactActions}>
-                  <a className={styles.contactLink} href={`mailto:${identity.email}`} target="_blank" rel="noopener noreferrer" aria-label={`Email ${identity.email}`}>Contact ↗</a>
-                  <a
-                    className={styles.resumeDownload}
-                    href={publicUrl("/resume.pdf")}
-                    download="Aryan-Kumar-Srivastava-Resume.pdf"
-                  >
-                    Resume ↓
-                  </a>
+            <div className={styles.sheetContent}>
+              <header>
+                <div className={styles.contactHeader} data-entry="contact">
+                  <div className={styles.contactActions}>
+                    <a className={styles.contactLink} href={`mailto:${identity.email}`} target="_blank" rel="noopener noreferrer" aria-label={`Email ${identity.email}`}>Contact ↗</a>
+                    <a
+                      className={styles.resumeDownload}
+                      href={publicUrl("/resume.pdf")}
+                      download="Aryan-Kumar-Srivastava-Resume.pdf"
+                    >
+                      Resume ↓
+                    </a>
+                  </div>
+                  <ul aria-label="Social profiles">
+                    {profiles.map((profile) => (
+                      <li key={profile.label}><a href={profile.href} target="_blank" rel="noopener noreferrer">{profile.label} ↗</a></li>
+                    ))}
+                  </ul>
                 </div>
-                <ul aria-label="Social profiles">
-                  {profiles.map((profile) => (
-                    <li key={profile.label}><a href={profile.href} target="_blank" rel="noopener noreferrer">{profile.label} ↗</a></li>
-                  ))}
-                </ul>
+                <div className={styles.nameplate} data-entry="identity">
+                  <div className={styles.nameBlock}>
+                    <h1 id="page-title" className={styles.name} aria-label="Aryan Kumar Srivastava">
+                      <span className={styles.nameLine} tabIndex={0} data-font-sound="title">Aryan Kumar</span>
+                      <span className={styles.nameLine} tabIndex={0} data-font-sound="title">Srivastava</span>
+                    </h1>
+                    <p className={styles.role}><RoleRotator /></p>
+                  </div>
+                  <div className={styles.photo}>
+                    <Image src={publicUrl("/identity.jpg")} alt={identity.imageAlt} width={399} height={399} preload />
+                  </div>
+                </div>
+              </header>
+
+              <p className={styles.intro} data-entry="intro">
+                <span className={styles.introLead}>Mostly backend, databases, distributed systems</span>
+                <span className={styles.introAside}>with a soft spot for designing good-looking web stuff</span>
+              </p>
+
+              <div id="portfolio-content" className={styles.resumeContent} tabIndex={-1}>
+                <ResumeSections />
               </div>
-              <div className={styles.nameplate}>
-                <div className={styles.nameBlock}>
-                  <h1 id="page-title" className={styles.name} aria-label="Aryan Kumar Srivastava">
-                    <span className={styles.nameLine} tabIndex={0} data-font-sound="title">Aryan Kumar</span>
-                    <span className={styles.nameLine} tabIndex={0} data-font-sound="title">Srivastava</span>
-                  </h1>
-                  <p className={styles.role}><RoleRotator /></p>
-                </div>
-                <div className={styles.photo}>
-                  <Image src={publicUrl("/identity.jpg")} alt={identity.imageAlt} width={399} height={399} priority />
-                </div>
-              </div>
-            </header>
-
-            <p className={styles.intro}>
-              <span className={styles.introLead}>Mostly backend, databases, distributed systems</span>
-              <span className={styles.introAside}>with a soft spot for designing good-looking web stuff</span>
-            </p>
-
-            <div id="portfolio-content" className={styles.resumeContent} tabIndex={-1}>
-              <ResumeSections />
             </div>
-          </div>
-        </article>
-      </NotebookTurn>
+          </article>
+        </NotebookTurn>
+      </NotebookEntrance>
       <DeskBackground />
     </main>
   );

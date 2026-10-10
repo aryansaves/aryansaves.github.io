@@ -5,7 +5,7 @@ export function ResumeSections() {
   return (
     <div className={styles.body}>
       <div className={styles.primaryColumn}>
-        <section aria-labelledby="projects-heading">
+        <section aria-labelledby="projects-heading" data-entry="projects">
           <div className={styles.sectionHead}>
             <h2 id="projects-heading">Projects</h2>
           </div>
@@ -26,7 +26,7 @@ export function ResumeSections() {
           </ol>
         </section>
 
-        <section aria-labelledby="open-source-heading">
+        <section aria-labelledby="open-source-heading" data-entry="open-source">
           <div className={styles.sectionHead}>
             <h2 id="open-source-heading">Open Source Work</h2>
           </div>
@@ -45,7 +45,7 @@ export function ResumeSections() {
       </div>
 
       <div className={styles.details}>
-        <section className={styles.education} aria-labelledby="education-heading">
+        <section className={styles.education} aria-labelledby="education-heading" data-entry="education">
           <div className={styles.sectionHead}>
             <h2 id="education-heading">Education</h2>
           </div>
@@ -57,7 +57,7 @@ export function ResumeSections() {
           </p>
         </section>
 
-        <section aria-labelledby="practical-heading">
+        <section aria-labelledby="practical-heading" data-entry="details">
           <div className={styles.sectionHead}>
             <h2 id="practical-heading">Details</h2>
           </div>
