@@ -1,0 +1,162 @@
+.book {
+  --margin-line: 43px;
+  /* Flat paper < binding/controls < cast shadow < lifted paper.
+     Shared with the server-rendered spine in page.module.css. */
+  --notebook-blank-layer: 2;
+  --notebook-face-layer: 3;
+  --notebook-binding-layer: 4;
+  --notebook-control-layer: 5;
+  --notebook-shadow-layer: 6;
+  --notebook-flap-layer: 7;
+  isolation: isolate;
+}
+
+.blank,
+.flap {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--paper-edge);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(90deg, transparent calc(var(--margin-line) - 1px), rgba(131, 173, 184, .45) calc(var(--margin-line) - 1px), rgba(131, 173, 184, .45) calc(var(--margin-line) + 1px), transparent calc(var(--margin-line) + 1px)),
+    repeating-linear-gradient(to bottom, transparent 0 27px, rgba(137, 168, 177, .12) 28px 29px),
+    linear-gradient(rgba(248, 246, 238, .60), rgba(248, 246, 238, .60)),
+    var(--paper-image);
+  background-size: 100% 100%, 100% 29px, cover, cover;
+  background-position: center;
+  pointer-events: none;
+}
+
+.blank {
+  z-index: var(--notebook-blank-layer);
+  box-shadow: 0 24px 52px rgba(14, 23, 27, .25), 5px 7px 0 rgba(14, 23, 27, .18);
+}
+
+.face {
+  position: relative;
+  z-index: var(--notebook-face-layer);
+}
+
+/* The stationary leaf owns the desk shadow through the entire turn. */
+.face > article { box-shadow: none; }
+
+.book[data-turned="true"] .face { visibility: hidden; }
+
+.flap {
+  z-index: var(--notebook-flap-layer);
+  display: none;
+  overflow: hidden;
+  transform-origin: 0 0;
+  /* The reverse's margin belongs at its opposite edge. Its ruled lines
+     are carried along with the paper, rather than staying on the desk. */
+  background-image:
+    linear-gradient(90deg, transparent calc(100% - var(--margin-line) - 1px), rgba(131, 173, 184, .32) calc(100% - var(--margin-line) - 1px), rgba(131, 173, 184, .32) calc(100% - var(--margin-line) + 1px), transparent calc(100% - var(--margin-line) + 1px)),
+    repeating-linear-gradient(to bottom, transparent 0 27px, rgba(137, 168, 177, .1) 28px 29px),
+    linear-gradient(rgba(248, 246, 238, .58), rgba(248, 246, 238, .58)),
+    var(--paper-image);
+}
+
+.reverseLight {
+  position: absolute;
+  inset: 0;
+  background: #fffdf7;
+  opacity: var(--lift, 0);
+}
+
+.cast {
+  position: absolute;
+  z-index: var(--notebook-shadow-layer);
+  inset: 0;
+  display: none;
+  pointer-events: none;
+}
+
+.castBand,
+.rollBand {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
+.castBand {
+  background: linear-gradient(90deg, #25251e 0%, rgba(37, 37, 30, .48) 16%, rgba(37, 37, 30, .16) 50%, transparent 100%);
+}
+
+.rollBand {
+  background: linear-gradient(90deg, rgba(37, 35, 25, .30) 0%, rgba(37, 35, 25, .18) 6%, rgba(255, 255, 251, .65) 17%, rgba(37, 35, 25, .10) 34%, transparent 100%);
+}
+
+.book[data-folding="true"] .flap,
+.book[data-folding="true"] .cast { display: block; }
+.book[data-folding="true"] .face,
+.book[data-folding="true"] .flap { will-change: clip-path, transform; }
+
+.turnControl {
+  position: absolute;
+  z-index: var(--notebook-control-layer);
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 104px;
+  min-height: 44px;
+  padding: 9px 13px 6px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #586266;
+  font-family: var(--accent);
+  font-size: 16px;
+  line-height: 1;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.turnControl:hover { color: var(--ink); }
+.turnControl:active { cursor: grabbing; }
+.turnControl:focus-visible { outline: 2px dashed var(--ink); outline-offset: -5px; }
+.turnControl[aria-disabled="true"] { cursor: grabbing; }
+.book[data-folding="true"] .turnControl > * { opacity: .38; }
+.book[data-turned="true"] .turnControl { right: auto; left: 12px; flex-direction: row-reverse; }
+.book[data-turned="true"] .turnControl svg { transform: scaleX(-1); }
+
+.pageNumber {
+  position: absolute;
+  /* Printed on its own leaf, inside that leaf's stacking and clip context. */
+  z-index: 3;
+  bottom: 13px;
+  left: 50%;
+  color: var(--muted);
+  font-family: var(--accent);
+  font-size: 14px;
+  line-height: 1;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.announcement {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 700px) { .book { --margin-line: 20px; } }
+@media (max-width: 480px) { .book { --margin-line: 11px; } }
+@media (prefers-reduced-motion: reduce) {
+  .turnControl { cursor: pointer; }
+  .book[data-folding="true"] .flap,
+  .book[data-folding="true"] .cast { display: none; }
+}

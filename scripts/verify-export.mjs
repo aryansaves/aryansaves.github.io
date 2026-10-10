@@ -25,8 +25,10 @@ for (const page of pages) {
 }
 
 const home = await readFile(resolve(root, "index.html"), "utf8");
-assert.ok(!home.includes("resume.pdf"), "Resume link should not be published");
-assert.equal(await stat(resolve(root, "resume.pdf")).catch(() => null), null, "Resume PDF should not be exported");
+assert.match(home, /<a\b[^>]*href="[^"]*\/resume\.pdf"[^>]*download="Aryan-Kumar-Srivastava-Resume\.pdf"/, "Missing native resume download link");
+const resume = await readFile(resolve(root, "resume.pdf"));
+assert.ok(resume.equals(await readFile("public/resume.pdf")), "Exported resume differs from the approved PDF");
+assert.equal(resume.subarray(0, 5).toString(), "%PDF-", "Resume is not a PDF");
 assert.ok(home.includes(`${base}/art/paper.webp`), "Missing paper texture reference");
 for (const name of ["cursor-default-small.png", "cursor-pressed-small.png"]) {
   assert.ok(home.includes(`${base}/art/${name}`), `Missing ${name} reference`);
@@ -58,4 +60,4 @@ for (const entry of await readdir(resolve(root, "_next/static"), { recursive: tr
     checked++;
   }
 }
-console.log(`Verified single-sheet export, 404, ${checked} internal URLs, artwork, original identity image, and absence of a published resume.`);
+console.log(`Verified single-sheet export, 404, ${checked} internal URLs, artwork, original identity image, and approved resume download.`);

@@ -1,7 +1,7 @@
 .stage {
   height: 100svh;
   height: 100dvh;
-  --stage-inset: clamp(12px, 2dvh, 24px);
+  --stage-inset: clamp(16px, 3dvh, 32px);
   padding: var(--stage-inset) 24px;
   display: flex;
   justify-content: center;
@@ -12,9 +12,9 @@
   background-color: var(--surround);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .stage, .stage a { cursor: var(--cursor-default); }
-  .stage:active, .stage a:active { cursor: var(--cursor-pressed); }
+@media (any-hover: hover) and (any-pointer: fine) {
+  .stage, .stage a, .stage button, .stage button[aria-disabled="true"] { cursor: var(--cursor-default); }
+  .stage:active, .stage a:active, .stage button:active { cursor: var(--cursor-pressed); }
 }
 
 
@@ -31,7 +31,7 @@
 .notebook {
   position: relative;
   z-index: 1;
-  width: min(100%, 760px);
+  width: min(100%, 820px);
   perspective: 1800px;
 }
 
@@ -55,10 +55,7 @@
   position: relative;
   isolation: isolate;
   width: 100%;
-  max-height: calc(100dvh - 2 * var(--stage-inset) - 12px);
-  overflow: auto;
-  overscroll-behavior: contain;
-  scrollbar-width: thin;
+  height: min(1025px, calc(100dvh - 2 * var(--stage-inset) - 12px));
   background: var(--paper);
   border: 1px solid var(--paper-edge);
   box-shadow: 0 24px 52px rgba(14, 23, 27, .25), 5px 7px 0 rgba(14, 23, 27, .18);
@@ -69,7 +66,7 @@
 
 .binding {
   position: absolute;
-  z-index: 4;
+  z-index: var(--notebook-binding-layer, 4);
   top: 24px;
   bottom: 24px;
   left: -8px;
@@ -120,7 +117,12 @@
 .sheetContent {
   position: relative;
   z-index: 1;
-  padding: clamp(16px, 3dvh, 30px) 58px clamp(24px, 4dvh, 40px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 22px;
+  padding: 28px 56px 52px;
 }
 
 .contactHeader {
@@ -128,15 +130,15 @@
   justify-content: space-between;
   align-items: center;
   gap: 8px 18px;
-  font-size: 10px;
-  line-height: 1.3;
+  font-size: 12px;
+  line-height: 1.4;
   color: var(--muted);
 }
 
-.contactHeader a {
+.contactHeader a, .resumeDownload {
   display: inline-flex;
   align-items: center;
-  min-height: 27px;
+  min-height: 36px;
   padding: 4px 7px;
   border-bottom: 1px solid var(--rule);
   background: rgba(255, 255, 252, .74);
@@ -147,7 +149,7 @@
   transition: transform .16s ease, background-color .16s ease;
 }
 .contactHeader .contactLink { border-left: 2px solid var(--accent-red); font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.contactHeader a:hover, .contactHeader a:focus-visible { background: #f2eedf; transform: translateY(-2px); }
+.contactHeader a:hover, .contactHeader a:focus-visible, .resumeDownload:hover, .resumeDownload:focus-visible { background: #f2eedf; transform: translateY(-2px); }
 .contactHeader ul { display: flex; flex-wrap: nowrap; gap: 7px; list-style: none; margin: 0; padding: 0; }
 
 
@@ -157,7 +159,7 @@
   grid-template-columns: minmax(0, 1fr) 148px;
   gap: 24px;
   align-items: center;
-  padding-top: clamp(12px, 2.5dvh, 24px);
+  padding-top: 20px;
 }
 
 .kicker { margin: 0 0 10px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .13em; }
@@ -165,7 +167,7 @@
 .name {
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(44px, 7dvh, 68px);
+  font-size: clamp(44px, 6.5dvh, 64px);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -.02em;
@@ -178,7 +180,7 @@
   min-height: 1.1em;
 }
 .nameLine:hover, .nameLine:focus-visible { font-family: var(--accent); }
-.role { height: var(--role-height, 48px); margin: clamp(8px, 1.5dvh, 14px) 0 0; }
+.role { height: var(--role-height, 48px); margin: 18px 0 0; }
 
 .photo {
   position: relative;
@@ -194,7 +196,8 @@
 .photo img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; display: block; }
 
 .intro {
-  margin: clamp(12px, 2.5dvh, 24px) 0;
+  flex: none;
+  margin: 0;
   padding: 10px 12px 11px;
   display: flex;
   flex-wrap: wrap;
@@ -207,7 +210,7 @@
 }
 
 .introLead {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: -.01em;
 }
@@ -217,7 +220,7 @@
   z-index: 0;
   padding: 1px 5px 2px;
   font-family: var(--accent);
-  font-size: 17px;
+  font-size: 20px;
   line-height: 1.1;
   transform: rotate(-.6deg);
 }
@@ -250,12 +253,12 @@
 }
 
 @media (max-width: 480px) {
-  .stage { --stage-inset: 10px; padding-inline: 14px; --role-height: 38px; }
+  .stage { --stage-inset: 12px; padding-inline: 14px; --role-height: 38px; }
   .sheet { --margin-line: 11px; }
   .binding { left: -6px; }
   .bindingHole { width: 13px; height: 13px; border-width: 2px; }
   .bindingHole::before { left: -13px; width: 16px; height: 5px; }
-  .sheetContent { padding: clamp(12px, 2dvh, 20px) 16px clamp(14px, 2.5dvh, 24px); }
+  .sheetContent { padding: 16px 18px 44px; gap: 14px; }
   .contactHeader { gap: 5px; font-size: 11px; }
   .contactHeader a { min-height: 28px; padding: 4px; }
   .contactHeader ul { gap: 4px; }
@@ -263,26 +266,9 @@
   .name { font-size: clamp(29px, 8.5vw, 40px); }
   .role { margin-top: 8px; }
   .photo { width: 68px; padding: 4px; }
-  .intro { margin: clamp(10px, 2dvh, 18px) 0; padding: 7px 8px; gap: 3px; }
-  .introLead { font-size: 12px; }
-  .introAside { font-size: 16px; }
-}
-
-/* Short screens gain horizontal room instead of scaling down the text. */
-@media (min-width: 701px) and (max-height: 600px) {
-  .notebook { width: min(100%, 960px); }
-  .sheetContent { padding: 14px 28px 20px; display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 12px 24px; }
-  .sheetContent header { grid-column: 1; }
-  .contactHeader { flex-wrap: wrap; }
-  .contactHeader ul { gap: 4px; }
-  .resumeContent { grid-column: 2; grid-row: 1 / 3; }
-  .nameplate { padding-top: 8px; position: relative; grid-template-columns: 1fr; }
-  .name { font-size: 38px; }
-  .photo { position: absolute; right: 0; bottom: 0; width: 50px; padding: 3px; }
-  .role { margin-top: 6px; }
-  .intro { grid-column: 1; margin: 0; padding-block: 6px; }
-  .role { --role-height: 40px; margin-right: 56px; }
-  .playingCat { display: none; }
+  .intro { margin: 0; padding: 8px; gap: 4px; }
+  .introLead { font-size: 13px; }
+  .introAside { font-size: 17px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -299,3 +285,95 @@
   .nameplate { grid-template-columns: minmax(0, 1fr) 58px; }
   .photo { width: 58px; }
 }
+
+@media (min-width: 481px) and (max-height: 850px) {
+  .sheetContent { padding: 20px 40px 48px; gap: 16px; }
+  .nameplate { padding-top: 12px; }
+  .name { font-size: 48px; }
+  .role { margin-top: 10px; }
+  .intro { padding-block: 8px; }
+}
+
+@media (min-width: 601px) and (max-height: 600px) {
+  .stage { --stage-inset: 12px; }
+  .notebook { width: min(100%, 960px); }
+  .sheetContent { display: grid; grid-template-columns: 220px minmax(0, 1fr); grid-template-rows: auto 1fr; padding: 14px 28px 44px; gap: 12px 24px; }
+  .sheetContent header, .intro { grid-column: 1; }
+  .resumeContent { grid-column: 2; grid-row: 1 / 3; }
+  .contactHeader { flex-wrap: wrap; font-size: 10px; }
+  .contactHeader a { min-height: 26px; }
+  .nameplate { position: relative; grid-template-columns: 1fr; padding-top: 8px; }
+  .name { font-size: 34px; }
+  .photo { position: absolute; right: 0; bottom: 0; width: 50px; padding: 3px; }
+  .role { --role-height: 38px; margin: 6px 56px 0 0; }
+  .intro { align-self: start; padding: 6px; }
+  .introLead { font-size: 12px; }
+  .introAside { font-size: 16px; }
+  .playingCat { display: none; }
+}
+
+@media (max-width: 480px) and (max-height: 700px) {
+  .sheetContent { padding: 12px 14px 40px; gap: 10px; }
+  .name { font-size: 26px; }
+  .role { --role-height: 32px; margin-top: 5px; }
+  .nameplate { padding-top: 8px; }
+  .intro { padding: 6px; gap: 3px; }
+  .introLead { font-size: 12px; }
+  .introAside { font-size: 15px; }
+}
+
+@media (max-width: 480px) and (max-height: 600px) {
+  .sheetContent { padding: 10px 14px 36px; gap: 8px; }
+  .name { font-size: 24px; }
+  .role { --role-height: 28px; margin-top: 4px; }
+  .nameplate { padding-top: 6px; }
+  .intro { padding: 4px 6px; gap: 2px; line-height: 1.2; }
+  .introAside { font-size: 14px; line-height: 1.05; }
+}
+
+@media (min-width: 601px) and (max-height: 420px) {
+  .sheetContent { padding-bottom: 40px; gap: 10px 24px; }
+  .name { font-size: 32px; }
+  .introAside { font-size: 15px; }
+}
+
+/* Use the spare paper height for readable copy, not large inter-section gaps. */
+@media (min-width: 701px) and (min-height: 851px) {
+  .sheetContent { padding-top: 24px; padding-bottom: 48px; }
+  .introLead { font-size: 17px; }
+  .introAside { font-size: 23px; }
+}
+
+@media (min-width: 481px) and (max-width: 600px) and (max-height: 600px) {
+  .stage { --stage-inset: 10px; padding-inline: 20px; }
+  .sheetContent { display: grid; grid-template-columns: 164px minmax(0, 1fr); grid-template-rows: auto 1fr; padding: 10px 18px 32px; gap: 8px 14px; }
+  .sheetContent header, .intro { grid-column: 1; }
+  .resumeContent { grid-column: 2; grid-row: 1 / 3; }
+  .contactHeader { flex-wrap: wrap; font-size: 9px; gap: 4px; }
+  .contactHeader a { min-height: 24px; padding: 3px; }
+  .contactHeader ul { gap: 3px; }
+  .nameplate { position: relative; grid-template-columns: 1fr; padding-top: 6px; }
+  .name { font-size: 26px; }
+  .photo { position: absolute; right: 0; bottom: 0; width: 40px; padding: 3px; }
+  .role { --role-height: 30px; margin: 4px 44px 0 0; }
+  .intro { align-self: start; padding: 4px; gap: 2px; }
+  .introLead { font-size: 11px; }
+  .introAside { font-size: 13px; }
+}
+
+.resumeDownload {
+  position: absolute;
+  left: 56px;
+  bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+@media (max-width: 700px) { .resumeDownload { left: 32px; } }
+@media (max-width: 480px) { .resumeDownload { left: 18px; font-size: 11px; min-height: 28px; } }
+@media (min-width: 481px) and (max-height: 850px) { .resumeDownload { left: 40px; } }
+@media (min-width: 601px) and (max-height: 600px) { .resumeDownload { left: 28px; font-size: 10px; min-height: 28px; } }
+@media (max-width: 480px) and (max-height: 700px) { .resumeDownload { left: 14px; } }
+@media (min-width: 481px) and (max-width: 600px) and (max-height: 600px) { .resumeDownload { left: 18px; font-size: 10px; min-height: 24px; } }
+@media (prefers-reduced-motion: reduce) { .resumeDownload { transition: none; } }
